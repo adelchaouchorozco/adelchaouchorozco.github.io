@@ -1,0 +1,6 @@
+# Original files (not needed for website)
+1a5113f3-0944-4003-9290-6d86b34e6e33.jpg
+*.pdf
+
+# OS files
+.DS_Store
