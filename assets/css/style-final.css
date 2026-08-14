@@ -1352,15 +1352,32 @@ p:last-child { margin-bottom: 0; }
 /* ===== Footer — deep navy ===== */
 .footer {
     background: var(--navy-deep);
-    padding: 2rem;
+    padding: 2.25rem 2rem 2rem;
     text-align: center;
+}
+
+/* Contact and the profile marks read as one line rather than two stacked blocks,
+   divided by a hairline. The copyright then sits clearly beneath as a footnote,
+   so the band is two tiers instead of three. */
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem 1.35rem;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 1rem;
+}
+
+/* the divider belongs between the two groups, so it is only drawn when the
+   Contact link is actually there (it is not, on the contact page itself) */
+.footer-links + .footer-social {
+    padding-left: 1.35rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .footer-links a {
@@ -1383,8 +1400,7 @@ p:last-child { margin-bottom: 0; }
 .footer-social {
     display: flex;
     justify-content: center;
-    gap: 1.4rem;
-    margin-bottom: 1.1rem;
+    gap: 0.9rem;
 }
 
 .footer-social a {
@@ -1404,8 +1420,10 @@ p:last-child { margin-bottom: 0; }
 .footer-social svg { display: block; fill: currentColor; }
 
 .footer p {
-    font-size: 0.8rem;
+    margin-top: 1.35rem;
+    font-size: 0.76rem;
     color: var(--navy-meta);
+    opacity: 0.85;              /* a footnote, not a third element competing */
 }
 
 /* ===== Responsive ===== */
