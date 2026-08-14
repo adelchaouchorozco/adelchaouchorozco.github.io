@@ -1349,65 +1349,61 @@ p:last-child { margin-bottom: 0; }
     color: var(--text-light);
 }
 
-/* ===== Footer — deep navy ===== */
+/* ===== Footer — a colophon, not a widget =====
+   The rest of the site is left-aligned to a 900px measure; a centred footer
+   fought that grid, which is why no arrangement of it sat right. It now uses the
+   same padding formula as .section, so the name lands on the same left edge as
+   every heading above it. A 3px mint bar opens it, mirroring the ink bar that
+   opens every h2 and the masthead rule — the page closes the way it began. */
 .footer {
     background: var(--navy-deep);
-    padding: 2.25rem 2rem 2rem;
-    text-align: center;
+    padding: 2.75rem max(2rem, calc((100% - var(--max-width)) / 2)) 2.25rem;
 }
 
-/* Contact and the profile marks read as one line rather than two stacked blocks,
-   divided by a hairline. The copyright then sits clearly beneath as a footnote,
-   so the band is two tiers instead of three. */
-.footer-row {
+.footer::before {
+    content: '';
+    display: block;
+    width: 2.75rem;
+    height: 3px;
+    background: var(--highlight);
+    margin-bottom: 1.5rem;
+}
+
+.footer-inner {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem 1.35rem;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+.footer-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
 }
 
-/* the divider belongs between the two groups, so it is only drawn when the
-   Contact link is actually there (it is not, on the contact page itself) */
-.footer-links + .footer-social {
-    padding-left: 1.35rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.footer-links a {
-    display: inline-block;
-    padding: 0.2rem 0 0;
+.footer-role {
+    margin: 0.35rem 0 0;
     font-size: 0.85rem;
-    color: var(--mint);
-    border: none;
-    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    color: var(--navy-meta);
 }
 
-.footer-links a:hover {
-    color: var(--text);
-}
-
-/* Profile marks in the navy band. Inlined SVG so they cost no request and take
-   their colour from here; they rest in the same dimmed tone as the footer meta
-   and come up to mint on hover, matching the footer links. */
+/* Profile marks sit on the baseline of the name, at the right edge of the measure.
+   Inlined SVG: no request, and they take their colour from here. */
 .footer-social {
     display: flex;
-    justify-content: center;
     gap: 0.9rem;
 }
 
 .footer-social a {
     display: grid;
     place-items: center;
-    /* 24px minimum target even though the mark itself is 18px */
-    width: 32px;
+    width: 32px;                        /* 24px minimum target, mark is 18px */
     height: 32px;
     color: var(--navy-meta);
     background-image: none;             /* no mint bar under an icon */
@@ -1415,15 +1411,23 @@ p:last-child { margin-bottom: 0; }
     transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.footer-social a:hover { color: var(--mint); }
-
+.footer-social a:hover { color: var(--highlight); }
 .footer-social svg { display: block; fill: currentColor; }
 
-.footer p {
-    margin-top: 1.35rem;
-    font-size: 0.76rem;
+.footer-legal {
+    margin: 2rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.75rem;
     color: var(--navy-meta);
-    opacity: 0.85;              /* a footnote, not a third element competing */
+    opacity: 0.8;
+}
+
+.footer a:focus-visible { outline-color: var(--mint); }
+
+@media (max-width: 600px) {
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .footer-social { margin-left: -6px; }   /* optical: pull the icon box flush left */
 }
 
 /* ===== Responsive ===== */
