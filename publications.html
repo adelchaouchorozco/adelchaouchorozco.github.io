@@ -3,194 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Publications by Adel Chaouch-Orozco in psycholinguistics and bilingualism research.">
+    <meta name="description" content="Publications by Adel Chaouch-Orozco: journal articles, books, and chapters on psycholinguistics, bilingualism, and semantic memory.">
     <title>Publications | Adel Chaouch-Orozco</title>
-    
-    
-    <!-- Fonts loaded via CSS @import -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/fonts/HankenGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final53">
 </head>
 <body>
-    <!-- Navigation -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Adel Chaouch-Orozco</a>
-            <div class="nav-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand-wrapper">
+                <a href="index.html" class="nav-brand">Adel <span class="nowrap">Chaouch-Orozco</span></a>
+                <span class="nav-tagline">Academic Website</span>
             </div>
+            <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html" class="active">Publications</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="publications.html" class="active" aria-current="page">Publications</a></li>
+                <li><a href="teaching.html">Teaching<span class="nav-label-tail"> &amp; Research Supervision</span></a></li>
                 <li><a href="cv.html">CV</a></li>
+                <li><a href="about.html">Beyond research</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <div class="page-main">
+
+    <main id="main">
     <section class="section">
-        <div class="container">
+        <!-- Unfiltered view: the ordinary page header. Hidden when ?area= narrows the
+             list, so the filtered landing leads with the area instead of the preamble. -->
+        <div id="pageHead">
             <h1>Publications</h1>
-            <p style="max-width: 700px;">
-                For a complete and up-to-date list, see my
-                <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Google Scholar</a> profile.
+            <p style="font-size: 1.05rem;">
+                Peer-reviewed articles, books, and chapters. Citation counts and the most
+                current list are on <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+                (240+ citations, h-index 9 as of July 2026).
             </p>
+        </div>
 
-            <div class="pub-list">
+        <!-- Filtered view. Written by JS only when ?area= is present, so without JS
+             (or without the parameter) the page is simply the complete list. -->
+        <div class="area-head" id="filterBar" hidden>
+            <a class="area-back" href="research.html#research-areas">Back to Research areas</a>
+            <h1 class="area-title" id="filterArea"></h1>
+            <p class="area-sub">
+                <span id="areaCounts"></span> &middot;
+                <a href="publications.html">See all publications</a>
+            </p>
+        </div>
+    </section>
 
-                <!-- 2025 -->
-                <h3 class="pub-year">2025</h3>
-
-                <div class="pub-item">
-                    <div class="pub-title">Network science reveals the early signs of L1 lexical attrition: Introducing the Lexical Attrition Foundation (LeAF) framework</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, & Martín-Villena, F.</div>
-                    <div class="pub-venue">Bilingualism: Language and Cognition, 28(1), 43-53</div>
+    <!-- Projects for the filtered view only. GENERATED from research.html by
+         scratchpad/add_projects_section.py — edit the projects there, not here,
+         then re-run it so the two pages cannot drift. Hidden unless ?area= is set. -->
+    <section class="section" id="areaProjects" hidden>
+        <h2>Research projects</h2>
+        <div class="project-list">
+    <div class="project-item" data-areas="language-cognition-emotion cross-cultural semantic-networks">
+                    <p class="project-title">EVOLVE: Examining Valence-mOduLated Variation of Emotion Concepts Across Cultures</p>
+                    <p class="project-meta">Principal Investigator &middot; GRF &middot; with P. Li and K. Lindquist &middot; since 2025</p>
+                    <p class="project-desc">
+                        Do speakers of different languages carve up the
+                        emotional world in the same way? This project asks
+                        whether how pleasant or unpleasant a feeling is
+                        changes how consistently its concept travels across
+                        cultures.
+                    </p>
                 </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Item repetition matters: Methodological considerations in bilingual language control research</div>
-                    <div class="pub-authors">Liu, H., <strong>Chaouch-Orozco, A.</strong>, & Sperlich, D.</div>
-                    <div class="pub-venue">International Journal of Bilingual Education and Bilingualism, 28(6), 676-690</div>
+                <div class="project-item" data-areas="language-cognition-emotion cross-cultural psycholinguistics">
+                    <p class="project-title">Translations: Psycholinguistic, Social Semiotic, Neuroanatomical, Health Technological and Psychological Perspectives on &lsquo;Voice Hearing&rsquo;</p>
+                    <p class="project-meta">Principal Investigator &middot; IG (CityUHK&ndash;Exeter) &middot; with M. J. Flexer and V. Neil &middot; since 2025</p>
+                    <p class="project-desc">
+                        Hearing a voice that nobody else can hear gets
+                        described very differently depending on who is asking.
+                        This CityUHK&ndash;Exeter collaboration puts
+                        psycholinguistics, social semiotics, neuroanatomy,
+                        health technology and psychology to work on the same
+                        experience, to see what each perspective can and
+                        cannot capture.
+                    </p>
                 </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Preparation wears off anticipation: The influence of preparation time on bilingual proactive control</div>
-                    <div class="pub-authors">Liu, H., & <strong>Chaouch-Orozco, A.</strong></div>
-                    <div class="pub-venue">International Journal of Bilingualism</div>
+                <div class="project-item" data-areas="ai-in-education ai-and-cognition">
+                    <p class="project-title">MODERA: Moderation and Optimization of Discussions with Enhanced Reasoning AI</p>
+                    <p class="project-meta">Principal Investigator &middot; TDG (CityU) &middot; since 2026</p>
+                    <p class="project-desc">
+                        Running a good group discussion is one of the hardest
+                        things to do in a large class. This project builds and
+                        tests an AI moderator that keeps a discussion on track
+                        and pushes students to reason further, and asks when
+                        that support genuinely helps them learn.
+                    </p>
                 </div>
+        </div>
+    </section>
 
-                <div class="pub-item">
-                    <div class="pub-title">Language control in auditory bilingual comprehension: Uncovering novel evidence from the n-2 repetition paradigm</div>
-                    <div class="pub-authors">Liu, H., & <strong>Chaouch-Orozco, A.</strong></div>
-                    <div class="pub-venue">Language and Cognition, 17, e15</div>
-                </div>
+    <section class="section">
+        <h2>Journal Articles</h2>
+        <div class="pub-list">
+            <div class="pub-year">2026</div>
+            <div class="pub-item" data-areas="semantic-networks language-cognition-emotion cross-cultural">
+                <p class="pub-title"><a href="https://doi.org/10.1057/s41599-026-06623-3" target="_blank" rel="noopener">Cultural attitudes towards the future shape the semantic structure of emotion concepts</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, Li, X., &amp; Li, P.</p>
+                <p class="pub-venue">Humanities and Social Sciences Communications, 13(1), 387</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Cultural attitudes towards the future shape the semantic structure of emotion concepts">What is the role of culture in how we understand and categorize emotions? This study takes a novel approach to address this long-debated issue by investigating whether specific cultural dimensions influence emotion conceptualization across languages. Native speakers of 15 languages completed a spatial arrangement task, grouping emotion concepts based on perceived semantic similarities. This generated language-specific emotion semantic spaces, which were then compared across languages. Our analysis reveals a strong correlation between semantic space variation and cultural factors, particularly long-term orientation (i.e., societal attitudes towards the future). Crucially, these results are independent of language family and do not strictly follow an East-West cultural divide. This study is the first to directly link specific cultural dimensions to the organization of emotion semantic spaces, providing evidence for the specific mechanisms through which culture shapes emotion conceptualization, and opening new avenues for understanding the complex interplay between culture, language, and emotion.</div>
+            </div>
 
-                <!-- 2024 -->
-                <h3 class="pub-year">2024</h3>
+            <div class="pub-year">2025</div>
+            <div class="pub-item" data-areas="bi-multilingualism lexical-semantic semantic-networks">
+                <p class="pub-title"><a href="https://doi.org/10.1017/s1366728924000063" target="_blank" rel="noopener">Network science reveals the early signs of L1 lexical attrition: Introducing the Lexical Attrition Foundation (LeAF) framework</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong> &amp; Martín-Villena, F.</p>
+                <p class="pub-venue">Bilingualism: Language and Cognition, 28(1), 43–53</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Network science reveals the early signs of L1 lexical attrition: Introducing the Lexical Attrition Foundation (LeAF) framework">L1 lexical attrition is the decline of L1 lexical-semantic abilities due to reduced L1 exposure and/or L2 interference. Semantic fluency tasks are central in this research, but traditional analyses are often inconclusive. To address this, we employed an innovative network science approach to investigate the bilingual lexicon&#x27;s structural properties. Semantic fluency data were collected from immersed/non-immersed late bilinguals with comparable L2 proficiencies. Our results indicate that L2 immersion led to more integrated and efficient L2 networks. Crucially, immersion also resulted in L1 attrition (only evident in the network analysis). Immersed participants exhibited less densely connected and sparser L1 networks. Furthermore, network measures suggest that L1 lexical attrition occurs gradually, initially impacting network interconnectivity, while information flow and community structure remain more stable. Drawing from these insights, we introduce the Lexical Attrition Foundation (LeAF) framework, offering a network-based perspective on lexical attrition development and laying the groundwork for future research.</div>
+            </div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism cognitive-control">
+                <p class="pub-title"><a href="https://doi.org/10.1037/xlm0001546" target="_blank" rel="noopener">Digits switch differently: Evidence of divergent cognitive control mechanisms in picture and digit language switching among ab initio learners</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong> &amp; Liu, H.</p>
+                <p class="pub-venue">Journal of Experimental Psychology: Learning, Memory, and Cognition</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Digits switch differently: Evidence of divergent cognitive control mechanisms in picture and digit language switching among ab initio learners">Bilinguals simultaneously activate both languages during comprehension and production, requiring cognitive control to manage cross-language interference. Language-switching naming tasks using pictures or digits are traditionally employed to study this control. However, comparisons of these stimuli are scarce, raising critical questions about whether they engage similar cognitive processes. Importantly, assuming their equivalency risks overlooking key aspects of bilingual language control mechanisms. To investigate this, 192 native Chinese speakers learned Turkish words under seven conditions designed to manipulate semantic and associative relationships: unrelated pictures, semantically and associatively related pictures, as well as digits and magnitudes presented either sequentially or randomly. After learning the words to criterion accuracy, participants completed a language-switching picture-naming task. Results revealed larger switching costs for digits than unrelated pictures, an effect absent for magnitudes or other picture types. These findings suggest that digit naming may bypass semantic processing pathways, diverging from the top-down processes typically engaged in picture and magnitude naming. This divergence highlights key differences in cognitive processing and emphasizes the need for caution when comparing stimuli in language control research. (PsycInfo Database Record (c) 2026 APA, all rights reserved).</div>
+            </div>
+            <div class="pub-item" data-areas="bi-multilingualism cognitive-control">
+                <p class="pub-title"><a href="https://doi.org/10.1080/13670050.2024.2446997" target="_blank" rel="noopener">Item repetition matters: Methodological considerations in bilingual language control research</a></p>
+                <p class="pub-authors">Liu, H., <strong>Chaouch-Orozco, A.</strong>, &amp; Sperlich, D.</p>
+                <p class="pub-venue">International Journal of Bilingual Education and Bilingualism, 28(6), 676–690</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Item repetition matters: Methodological considerations in bilingual language control research">Language switching experiments often vary in stimuli list sizes, leading to differences in item repetition frequency and potentially obscuring our understanding of bilingual language control. This study addresses how item repetition frequency affects switching costs and the reversed language dominance effect (i.e. better performance in a non-dominant language in mixed language naming) among bilinguals with varying L2 proficiencies, and how these effects evolve as the task progresses. Two experiments were conducted with 29 low- and 36 high-proficiency Chinese-English bilinguals using a picture naming task. One experiment presented a low-repetition stimuli list, and the other a high-repetition set. Results showed that switching costs remained regardless of item repetition frequency. However, the influence of L2 proficiency and language dominance on switching costs was only evident in the low-repetition list. Notably, as the task progressed, switching costs decreased in L1 Chinese but increased in L2 English, regardless of item repetition frequency or proficiency. These findings highlight the importance of methodological considerations in language control experiments. Understanding how these factors influence the experiments’ outcomes is crucial for accurately interpreting bilingual language control and avoiding undesirable confounds.</div>
+            </div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism cognitive-control">
+                <p class="pub-title"><a href="https://doi.org/10.1017/langcog.2024.43" target="_blank" rel="noopener">Language control in auditory bilingual comprehension: Uncovering novel evidence from the n−2 repetition paradigm</a></p>
+                <p class="pub-authors">Liu, H. &amp; <strong>Chaouch-Orozco, A.</strong></p>
+                <p class="pub-venue">Language and Cognition, 17, e15</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Language control in auditory bilingual comprehension: Uncovering novel evidence from the n−2 repetition paradigm">In language production, inhibitory control is assumed to be the primary mechanism responsible for successful bilingual processing. To convey messages in one language, bilinguals must inhibit the unintended language. However, it remains unclear whether the same mechanism works in bilingual comprehension. Following up and expanding on Declerck and Philipp (2018, ‘Is inhibition implemented during bilingual production and comprehension? n –2 language repetition costs unchained’, Language, Cognition and Neuroscience , vol. 33 , pp. 608–617), the present study investigates whether inhibition is involved in the linguistic identification system during bilingual comprehension with the n − 2 repetition paradigm. This is the second study exploring comprehension with this methodological setup to date. We used an auditory word–picture matching task with Chinese late trilinguals who learned their two non-native languages (L2 English and L3 Spanish) via formal school instruction. Our results indicate that participants responded faster in the n − 2 repetition trials (i.e., when the target language in the n and n − 2 trials matched). That is, we observed an n − 2 repetition benefit effect, a novel finding in this literature that goes counter the n − 2 repetition cost effect reported in previous studies using production-based tasks. In addition, our results underscore the complex interplay between proficiency and use and the resulting dynamics within the bilingual lexicon. We discuss the results in light of the different bilingual representation and processing models.</div>
+            </div>
+            <div class="pub-item" data-areas="bi-multilingualism cognitive-control">
+                <p class="pub-title"><a href="https://doi.org/10.1177/13670069251356204" target="_blank" rel="noopener">Preparation wears off anticipation: The influence of preparation time on bilingual proactive control</a></p>
+                <p class="pub-authors">Liu, H. &amp; <strong>Chaouch-Orozco, A.</strong></p>
+                <p class="pub-venue">International Journal of Bilingualism</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Preparation wears off anticipation: The influence of preparation time on bilingual proactive control">Aims and objectives: This study investigates the influence of preparation time, operationalized as the cue-to-stimulus interval (CSI), on the reversed language dominance effect, a marker of proactive bilingual language control. In addition, the study further explores the role of language proficiency in modulating this influence. Methodology: Two groups of Chinese-English bilinguals, with high- and low-proficiency levels, completed a picture-naming task in single-language and cued mixed-language blocks. Crucially, in the mixed-language blocks, the preparation time between cue and stimulus was manipulated by including CSIs of 0, 800, and 1,500 ms. Data and analysis: Sixty-five Chinese-English bilinguals (low proficiency, n = 29; high proficiency, n = 36) participated in the study. Findings: The findings demonstrate that the reversed language dominance effect is influenced by the amount of preparation time available. Specifically, the effect observed at a 0 ms CSI could be mitigated with preparation times of 800 and 1,500 ms, with this reduction occurring for both high- and low-proficiency participants. Originality: This paper is among the first attempts to investigate how preparation time influences proactive language control as measured by the reversed language dominance effect. Significance/implications: Our results help explain the inconsistencies in observing the reversed language dominance effect across studies and enhance our understanding of the application and timing of proactive control in bilingual language processing. They also highlight the importance of considering preparation time when investigating the mechanisms underlying bilingual language production.</div>
+            </div>
 
-                <div class="pub-item">
-                    <div class="pub-title">Are translation equivalents really equivalent? Evidence from concreteness effects in translation priming</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Duñabeitia, J.A., & Rothman, J.</div>
-                    <div class="pub-venue">International Journal of Bilingualism, 28(2), 149-162</div>
-                </div>
+            <div class="pub-year">2024</div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism lexical-semantic">
+                <p class="pub-title"><a href="https://doi.org/10.1177/13670069221146641" target="_blank" rel="noopener">Are translation equivalents really equivalent? Evidence from concreteness effects in translation priming</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Duñabeitia, J. A., &amp; Rothman, J.</p>
+                <p class="pub-venue">International Journal of Bilingualism, 28(2), 149–162</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Are translation equivalents really equivalent? Evidence from concreteness effects in translation priming">Aims and Objectives: Translation equivalents intuitively seem to overlap in meaning. Moreover, the models of the bilingual lexicon often represent the meaning shared between two translations as a holistic node in the semantic network. However, research on semantic representation and processing questions this holistic approach. For instance, abstract words are assumed to be more language-dependent, while concrete words’ meanings are seen as more consistent cross-linguistically. The non-cognate translation priming paradigm offers an ideal methodological setting to study semantic overlap (proxied by concreteness) between translations. Priming effects between non-cognate translation equivalents are assumed to emerge due to spreading activation at the semantic level. Hence, a larger semantic overlap between translation prime-target pairs should lead to larger priming effects. Nevertheless, the evidence from previous translation priming studies investigating concreteness displays a blurry picture, potentially reflecting a shared limitation: their relatively small sample sizes. We overcame this problem by analysing the largest translation priming dataset to date. Methodology: Two hundred Spanish–English highly proficient bilinguals were tested in a bidirectional translation priming experiment employing 314 non-cognate translation equivalents differing in concreteness. Data and analysis: We analysed response times and error rates employing conservative (generalized) linear mixed-effects models. Findings: The results showed that concrete translation pairs elicited larger priming effects than abstract ones, evidencing differences in semantic representation between concrete and abstract words. Importantly, the influence of concreteness appeared only in the forward translation direction, suggesting language experience-related differences in meaning representation. Originality: The present study analysed the largest dataset in the translation priming literature to date, employing a conservative statistical approach to shed light on the effects of concreteness on translation priming. Implications: Our study spotlights the complexity and non-holistic nature of the bilingual semantic representation of concrete and abstract words. The present findings call for more research to help the current models of the bilingual lexicon implement more nuanced semantic representations.</div>
+            </div>
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1075/lab.23066.liu" target="_blank" rel="noopener">Evaluation of the Multilingual Naming Test (MINT) as a quick and practical proxy for language proficiency</a></p>
+                <p class="pub-authors">Liu, H. &amp; <strong>Chaouch-Orozco, A.</strong></p>
+                <p class="pub-venue">Linguistic Approaches to Bilingualism, 14(5), 759–773</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Evaluation of the Multilingual Naming Test (MINT) as a quick and practical proxy for language proficiency">The present study compares the performance of two quick lexical tests, the Multilingual Naming Test (MINT) and the Lexical Test for Advanced Learners of English (LexTALE), to evaluate their suitability to serve as proxies for English proficiency in second language learners. Specifically, it investigates how well these tests’ results align with those of the Quick Placement Test (QPT), an objective placement test employed in previous validations of the LexTALE. Considering recent findings by Puig-Mayenco et al. (2023) suggesting the LexTALE is apt for measuring advanced proficiencies but is less reliable with lower ones, our study aims to test the performance of both the LexTALE and MINT across different proficiencies. Two hundred nineteen Chinese learners of English, spanning both higher and lower proficiency levels, participated in the study. The results showed that the relationship between the MINT and QPT was similar to that between the LexTALE and QPT. However, the MINT demonstrated better performance than the LexTALE in assessing lower proficiency levels. These results underscore the MINT’s potential to serve as a quick and valid proxy for proficiency across all levels, particularly in research contexts where the use of longer and more comprehensive assessment tools is not possible.</div>
+            </div>
 
-                <div class="pub-item">
-                    <div class="pub-title">Evaluation of the Multilingual Naming Test (MINT) as a quick and practical proxy for language proficiency</div>
-                    <div class="pub-authors">Liu, H., & <strong>Chaouch-Orozco, A.</strong></div>
-                    <div class="pub-venue">Linguistic Approaches to Bilingualism, 14(5), 759-773</div>
-                </div>
+            <div class="pub-year">2023</div>
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1075/lab.22048.pui" target="_blank" rel="noopener">The LexTALE as a measure of L2 global proficiency: A cautionary tale based on a partial replication of Lemhöfer and Broersma (2012)</a></p>
+                <p class="pub-authors">Puig-Mayenco, E., <strong>Chaouch-Orozco, A.</strong>, Liu, H., &amp; Martín-Villena, F.</p>
+                <p class="pub-venue">Linguistic Approaches to Bilingualism, 13(3), 299–314</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="The LexTALE as a measure of L2 global proficiency: A cautionary tale based on a partial replication of Lemhöfer and Broersma (2012)">The role of proficiency is widely discussed in multilingual language acquisition research, and yet, there is little consensus as to how one should operationalize it in our empirical investigations. The present study assesses the validity of the LexTALE (Lemhöfer &amp; Broersma, 2012) as a ‘quick and valid’ measure of global proficiency. We first provide an overview review of how the LexTALE has been used since its publication, showing that although the test has gained popularity in the last few years, its reliability has not been thoroughly examined. Thus, herein we present results of a partial replication of Lemhöfer and Broersma (2012), where we empirically assess the validity of the LexTALE as a measure of L2 global proficiency in two groups of learners of English with various degrees of proficiency (L1 Spanish, n = 288; L1 Chinese, n = 266). Results indicate that if we are to use LexTALE in our investigations, we should do so with caution as the analyses show that irrespective of the L1 and level of proficiency of the targeted participants, its reliability as a measure of global proficiency is under question evidenced by the low and moderate correlations found with a standardised measure of global proficiency.</div>
+            </div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism lexical-semantic">
+                <p class="pub-title"><a href="https://doi.org/10.1017/s0272263122000249" target="_blank" rel="noopener">The elusive impact of L2 immersion on translation priming</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Duñabeitia, J. A., &amp; Rothman, J.</p>
+                <p class="pub-venue">Studies in Second Language Acquisition, 45(2), 393–415</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="The elusive impact of L2 immersion on translation priming">A growing consensus sees the bilingual lexicon as an integrated, nonselective system. However, the way bilingual experience shapes the architecture and functioning of the lexicon is not well understood. This study investigates bilingual lexical-semantic representation and processing employing written translation priming. We focus on the role of active exposure to and use of the second language (L2)—primarily operationalized as immersion. We tested 200 highly proficient Spanish–English bilinguals in two groups differing in their societal language (immersed vs. nonimmersed) and amount of L2 use. L2 proficiency was controlled across participants, allowing us to disentangle its effects from those of L2 use. Overall, however, the immersion’s impact on our data was minimal. This suggests a ceiling effect for the influence of active L2 use on bilingual lexical functioning when L2 development is maximal. The present data provide relevant insights into the nature of the bilingual lexicon, informing developmental models.</div>
+            </div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism lexical-semantic cognitive-control">
+                <p class="pub-title"><a href="https://doi.org/10.1017/s1366728922000608" target="_blank" rel="noopener">Is the digit effect a cognate effect? Digits (still) differ from pictures in non-phonologically mediated language switching</a></p>
+                <p class="pub-authors">Liu, H. &amp; <strong>Chaouch-Orozco, A.</strong></p>
+                <p class="pub-venue">Bilingualism: Language and Cognition, 26(3), 469–475</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Is the digit effect a cognate effect? Digits (still) differ from pictures in non-phonologically mediated language switching">Language control in bilinguals is often investigated with the language switching paradigm. Switch costs reflect the ease/difficulty of applying this control mechanism. The type of stimuli employed in the experiments may influence switch costs. To date, only one study has compared digit vs picture processing, reporting reduced switch costs for digits (Declerck, Koch &amp; Philipp, 2012). This result was adjudicated to phonological overlap between the languages used. Crucially, it remains an open question whether this digit effect generalises to language combinations without phonological relation. We fill this gap by investigating language switching with two language pairs differing in relative proficiency (L1 Chinese–L2 English, L1 Chinese–L3 French), where cross-language phonological activation is not expected. Overall, a digit effect is observed in the Chinese–English pair. Contrary to Declerck et al.&#x27;s (2012) finding, digits increased switch costs. Phonological mediation cannot explain this effect; instead, we suggest its origin lies in within-language word association links.</div>
+            </div>
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1177/02676583221123954" target="_blank" rel="noopener">Testing the competing systems hypothesis: Further evidence from aspect in tutored L1-English–L2-Spanish</a></p>
+                <p class="pub-authors">Judy, T., Puig-Mayenco, E., <strong>Chaouch-Orozco, A.</strong>, Martín-Villena, F., &amp; Miller, D.</p>
+                <p class="pub-venue">Second Language Research, 39(4), 1165–1189</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Testing the competing systems hypothesis: Further evidence from aspect in tutored L1-English–L2-Spanish">This study tests the Competing Systems Hypothesis (CSH) as applied to adult second language acquisition of aspect in Spanish. The CSH purports that differences among tutored and untutored learners result from competition between one system of underlying grammatical knowledge and another of learned metalinguistic knowledge in tutored learners (TLs). Twenty-nine first language (L1) English and second language (L2) Spanish (L1-English–L2-Spanish) TLs and 29 native Spanish speakers completed three tasks examining knowledge of Spanish aspect. A Cloze Task targeted typical use of preterit and imperfect morphology, while a Semantic Entailments Task assessed acquired knowledge of entailments falling out from convergence on the aspectual system. Finally, a Binary-Choice Task targeted three pedagogical simplifications common to L1-English–L2-Spanish textbooks: adverbials that ‘go with’ the preterit or imperfect, ‘meaning-changing’ verbs in preterit, and the lower frequency of stative verbs in preterit. Results align with the CSH in that TLs performed above 80% accuracy on preterit and imperfect items in the Cloze Task, indicating acquisition of Spanish aspectual morphology. The Semantic Entailments Task further shows TLs converge on underlying knowledge of grammatical aspect by making a significant distinction between logical and illogical entailments. Finally, competition between the underlying grammatical system and learned metalinguistic knowledge is evidenced in the Binary-Choice Task where TLs are less accurate with preterit; specifically, TLs demonstrate effects from pedagogical simplifications regarding adverbials and ‘meaning-changing’ verbs.</div>
+            </div>
 
-                <div class="pub-item">
-                    <div class="pub-title">The influence of stimulus type on language processing in comprehension</div>
-                    <div class="pub-authors">Liu, H., & <strong>Chaouch-Orozco, A.</strong></div>
-                    <div class="pub-venue">Proceedings of the Annual Meeting of the Cognitive Science Society, 46</div>
-                </div>
-
-                <!-- 2023 -->
-                <h3 class="pub-year">2023</h3>
-
-                <div class="pub-item">
-                    <div class="pub-title">The elusive impact of L2 immersion on translation priming</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Duñabeitia, J.A., & Rothman, J.</div>
-                    <div class="pub-venue">Studies in Second Language Acquisition, 45(2), 393-415</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">The LexTALE as a measure of L2 global proficiency: A cautionary tale based on a partial replication of Lemhöfer and Broersma (2012)</div>
-                    <div class="pub-authors">Puig-Mayenco, E., <strong>Chaouch-Orozco, A.</strong>, Liu, H., & Martín-Villena, F.</div>
-                    <div class="pub-venue">Linguistic Approaches to Bilingualism, 13(3), 299-314</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Is the digit effect a cognate effect? Digits (still) differ from pictures in non-phonologically mediated language switching</div>
-                    <div class="pub-authors">Liu, H., & <strong>Chaouch-Orozco, A.</strong></div>
-                    <div class="pub-venue">Bilingualism: Language and Cognition, 26(3), 469-475</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Testing the competing systems hypothesis: Further evidence from aspect in tutored L1-English-L2-Spanish</div>
-                    <div class="pub-authors">Judy, T., Puig-Mayenco, E., <strong>Chaouch-Orozco, A.</strong>, Martín-Villena, F., & Miller, D.</div>
-                    <div class="pub-venue">Second Language Research, 39(4), 1165-1189</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">The Cambridge Handbook of Third Language Acquisition</div>
-                    <div class="pub-authors">Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S.M., Puig-Mayenco, E., & Rothman, J. (Eds.)</div>
-                    <div class="pub-venue">Cambridge University Press</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Introduction: Multilingualism - Language, brain, and cognition</div>
-                    <div class="pub-authors">Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S.M., Puig-Mayenco, E., & Rothman, J.</div>
-                    <div class="pub-venue">In: The Cambridge Handbook of Third Language Acquisition, 1-20. Cambridge University Press</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Exploring the acquisition of L3 phonology: Challenges, new insights, and future directions</div>
-                    <div class="pub-authors">Wrembel, M., Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S.M., Puig-Mayenco, E., & Rothman, J.</div>
-                    <div class="pub-venue">In: The Cambridge Handbook of Third Language Acquisition, 115-141. Cambridge University Press</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Theoretical linguistic approaches to multilingual code-switching</div>
-                    <div class="pub-authors">Parafita Couto, M., Bellamy, K.R., Ameka, F.K., Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S.M., Puig-Mayenco, E., & Rothman, J.</div>
-                    <div class="pub-venue">In: The Cambridge Handbook of Third Language Acquisition, 403-436. Cambridge University Press</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Multilingualism and cognitive control in the brain</div>
-                    <div class="pub-authors">Chung-Fat-Yim, A., Hayakawa, S., Marian, V., Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S.M., Puig-Mayenco, E., & Rothman, J.</div>
-                    <div class="pub-venue">In: The Cambridge Handbook of Third Language Acquisition. Cambridge University Press</div>
-                </div>
-
-                <!-- 2021 -->
-                <h3 class="pub-year">2021</h3>
-
-                <div class="pub-item">
-                    <div class="pub-title">Individual differences in bilingual word recognition: The role of experiential factors and word frequency in cross-language lexical priming</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., & Rothman, J.</div>
-                    <div class="pub-venue">Applied Psycholinguistics, 447-474</div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">On the status of transfer in adult third language acquisition of early bilinguals</div>
-                    <div class="pub-authors">González Alonso, J., Puig-Mayenco, E., Fábregas, A., <strong>Chaouch-Orozco, A.</strong>, Rothman, J., et al.</div>
-                    <div class="pub-venue">PLOS ONE, 16(3), e0247976</div>
-                </div>
-
-                <!-- 2019 -->
-                <h3 class="pub-year">2019</h3>
-
-                <div class="pub-item">
-                    <div class="pub-title">Exploring the role of L2 experience-related factors in cross-language lexical priming</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., & Rothman, J.</div>
-                    <div class="pub-venue">Proceedings of the 43rd Boston University Conference on Language Development</div>
-                </div>
-
+            <div class="pub-year">2021</div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism lexical-semantic">
+                <p class="pub-title"><a href="https://doi.org/10.1017/s014271642000082x" target="_blank" rel="noopener">Individual differences in bilingual word recognition: The role of experiential factors and word frequency in cross-language lexical priming</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., &amp; Rothman, J.</p>
+                <p class="pub-venue">Applied Psycholinguistics, 42(2), 447–474</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Individual differences in bilingual word recognition: The role of experiential factors and word frequency in cross-language lexical priming">In studies of bilingual word recognition with masked priming, first language (L1) primes activate their second language (L2) translation equivalents in lexical decision tasks, but effects in the opposite direction are weaker (Wen &amp; van Heuven, 2017). This study seeks to clarify the relative weight of stimulus-level (frequency) and individual-level (L2 proficiency, L2 exposure/use) factors in the emergence of asymmetrical priming effects. We offer the first data set where L2 proficiency and L1/L2 exposure/use are simultaneously investigated as continuous variables, along with word frequency. While we replicate the asymmetry in priming effects, our data provide useful insights into the factors driving L2–L1 priming. These fall almost exclusively under the category of stimulus-level factors, with L2 exposure/use being the only experiential variable to show considerable influence, although complex interactions involving L2 proficiency and word frequency are also present. We discuss the implications of these results for models of bilingual lexical processing and for the appropriate measurement of experiential factors in this type of research.</div>
+            </div>
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1371/journal.pone.0247976" target="_blank" rel="noopener">On the status of transfer in adult third language acquisition of early bilinguals</a></p>
+                <p class="pub-authors">González Alonso, J., Puig-Mayenco, E., Fábregas, A., <strong>Chaouch-Orozco, A.</strong>, &amp; Rothman, J.</p>
+                <p class="pub-venue">PLOS ONE, 16(3), e0247976</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="On the status of transfer in adult third language acquisition of early bilinguals">The study of linguistic transfer—understood here in terms of the copying of previous linguistic representations—seeks to reveal how domain-relevant prior language knowledge impacts the acquisition and development of new mental representations more generally. Studying sequential multilingualism offers a natural laboratory to observe cognitive-economical mechanisms that avoid redundancy in language learning. One of the key dividing questions between theories of transfer in sequential multilingualism is the extent of transfer, that is, whether a whole previous grammar is transferred (full transfer) or a potentially different source language is selected for each linguistic property (property-by-property transfer). We adopted a novel methodological approach to this question, examining four different linguistic properties from unrelated domains of grammar across the three languages of a heterogeneous population of highly proficient, early Catalan/Spanish bilinguals with different degrees of language dominance and order of acquisition, at the very beginning of (adult) L3 English. Results are variably complex across the different properties, but compatible with a scenario where one of the previous languages, Catalan, was selected as the basis for the initial L3 English grammar of these speakers. We discuss the theoretical implications of these findings.</div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="mailto:adel.chaouchorozco@cityu.edu.hk">Email</a>
-                <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://lt.cityu.edu.hk/people/academic-staff/chaouch-orozco-adel" target="_blank">CityU</a>
+    <section class="section">
+        <h2>Books &amp; Edited Volumes</h2>
+        <div class="pub-list">
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1017/9781108957823" target="_blank" rel="noopener">The Cambridge Handbook of Third Language Acquisition</a></p>
+                <p class="pub-authors">Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S. M., Puig-Mayenco, E., &amp; Rothman, J. (Eds.)</p>
+                <p class="pub-venue">Cambridge University Press, 2023</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="The Cambridge Handbook of Third Language Acquisition">In our increasingly multilingual modern world, understanding how languages beyond the first are acquired and processed at a brain level is essential to design evidence-based teaching, clinical interventions and language policy. Written by a team of world-leading experts in a wide range of disciplines within cognitive science, this Handbook provides a comprehensive overview of the study of third (and more) language acquisition and processing. It features 30 approachable chapters covering topics such as multilingual language acquisition, education, language maintenance and language loss, multilingual code-switching, ageing in the multilingual brain, and many more. Each chapter provides an accessible overview of the state of the art in its topic, while offering comprehensive access to the specialized literature, through carefully curated citations. It also serves as a methodological resource for researchers in the field, offering chapters on methods such as case studies, corpora, artificial language systems or statistical modelling of multilingual data.</div>
             </div>
-            <p>&copy; 2025 Adel Chaouch-Orozco</p>
         </div>
+    </section>
+
+    <section class="section">
+        <h2>Book Chapters</h2>
+        <div class="pub-list">
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1017/9781108957823.001" target="_blank" rel="noopener">Introduction—Multilingualism: Language, brain, and cognition</a></p>
+                <p class="pub-authors">Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, González Alonso, J., Pereira Soares, S. M., Puig-Mayenco, E., &amp; Rothman, J.</p>
+                <p class="pub-venue">In The Cambridge Handbook of Third Language Acquisition (pp. 1–20). Cambridge University Press, 2023</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Introduction—Multilingualism: Language, brain, and cognition">This chapter provides an introduction to the handbook. It succintly overviews the key questions in the field of L3/Ln acquisition and summarizes the scope of all the chapters included. The chapter ends by raising some outstanding questions that the field needs to address.</div>
+            </div>
+            <div class="pub-item" data-areas="bi-multilingualism">
+                <p class="pub-title"><a href="https://doi.org/10.1017/9781108957823.026" target="_blank" rel="noopener">Innovations and challenges in acquisition and processing methodologies for L3/Ln</a></p>
+                <p class="pub-authors">Pereira Soares, S. M., <strong>Chaouch-Orozco, A.</strong>, &amp; González Alonso, J.</p>
+                <p class="pub-venue">In The Cambridge Handbook of Third Language Acquisition (pp. 661–682). Cambridge University Press, 2023</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Innovations and challenges in acquisition and processing methodologies for L3/Ln">The advent of psycholinguistic and neurolinguistic methodologies has provided new insights into theories of language acquisition. Sequential multilingualism is no exception, and some of the most recent work on the subject has incorporated a particular focus on language processing. This chapter surveys some of the work on the processing of lexical and morphosyntactic aspects of third or further languages, with different offline and online methodologies. We also discuss how, while increasingly sophisticated techniques and experimental designs have improved our understanding of third language acquisition and processing, simpler but clever designs can answer pressing questions in our theoretical debate. We provide examples of both sophistication and clever simplicity in experimental design, and argue that the field would benefit from incorporating a combination of both concepts into future work.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Conference Proceedings</h2>
+        <div class="pub-list">
+            <div class="pub-item" data-areas="ai-in-education ai-and-cognition cross-cultural">
+                <p class="pub-title"><a href="https://doi.org/10.1145/3772318.3791482" target="_blank" rel="noopener">Gamifying compassion: Mitigating dialect prejudice through an AI-driven serious game</a></p>
+                <p class="pub-authors">Lu, S., Purwanto, E., Liu, H., <strong>Chaouch-Orozco, A.</strong>, &amp; Li, A.</p>
+                <p class="pub-venue">Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems</p>
+                <button class="abstract-link" type="button" hidden>Read the abstract</button>
+                <div class="pub-abstract" hidden data-title="Gamifying compassion: Mitigating dialect prejudice through an AI-driven serious game">Dialect bias is pervasive yet often unconscious, normalized, or obscured by masking. Existing HCI interventions primarily audit disparities and propose reactive fixes. We present CompassioMate, a dialect-aware serious game that nurtures perspective-taking through AI-mediated play. Players listen to audio samples to identify regional dialects, engage in simulated social interactions involving dialect discrimination, and explore branching narratives that reveal how changes in wording or stance can influence the outcomes. In a three-week field study with 20 university students, participants reported feeling comfortable when observing region-tailored dialogues; several described experiencing perspective change. We contribute: 1) a formative study identifying goals for safe action consequence modelling, 2) the design and evaluation of a serious game integrating dialect audio, region-mapping play, bias; and 3) design implications highlighting listener-side training, transparent evaluation, and narratives maintaining psychological well-being.</div>
+            </div>
+            <div class="pub-item" data-areas="psycholinguistics lexical-semantic">
+                <p class="pub-title">The influence of stimulus type on language processing in comprehension</p>
+                <p class="pub-authors">Liu, H. &amp; <strong>Chaouch-Orozco, A.</strong></p>
+                <p class="pub-venue">Proceedings of the Annual Meeting of the Cognitive Science Society, 46, 2024</p>
+            </div>
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism lexical-semantic">
+                <p class="pub-title">Exploring the role of L2 experience-related factors in cross-language lexical priming</p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., &amp; Rothman, J.</p>
+                <p class="pub-venue">Proceedings of the 43rd Boston University Conference on Language Development, 2019</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Doctoral Thesis</h2>
+        <div class="pub-list">
+            <div class="pub-item" data-areas="psycholinguistics bi-multilingualism lexical-semantic">
+                <p class="pub-title"><a href="https://centaur.reading.ac.uk/107202/1/26812577_CHAOUCH-OROZCO_Thesis.pdf" target="_blank" rel="noopener">The nature of the bilingual lexicon: Investigating cross-language priming and its predictors</a></p>
+                <p class="pub-authors"><strong>Chaouch-Orozco, A.</strong></p>
+                <p class="pub-venue">PhD thesis, University of Reading, 2021</p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; 2026 Adel Chaouch-Orozco</p>
     </footer>
+    </div><!-- /page-main -->
+    </div><!-- /page-shell -->
+
+    <!-- One dialog, reused. <dialog> gives focus trapping, Esc-to-close and a backdrop
+         for free — the parts of "accessible" most hand-built modals get wrong. -->
+    <dialog class="abstract-dialog" id="abstractDialog" aria-labelledby="abstractTitle">
+        <!-- Close sits top-right, where a dismiss control is looked for, and stays put
+             while the abstract scrolls under it. -->
+        <button class="abstract-close" type="button" id="abstractClose"
+                aria-label="Close abstract" autofocus>&times;</button>
+
+        <header class="abstract-head">
+            <p class="abstract-kicker">Abstract</p>
+            <h2 class="abstract-heading" id="abstractTitle"></h2>
+            <p class="abstract-venue" id="abstractVenue"></p>
+        </header>
+
+        <!-- tabindex + role make the scroll area reachable and announced: a keyboard
+             user has to be able to scroll a long abstract, not just see it clipped. -->
+        <div class="abstract-scroll" id="abstractScroll" tabindex="0" role="region"
+             aria-label="Abstract">
+            <p class="abstract-body" id="abstractBody"></p>
+        </div>
+
+        <footer class="abstract-foot">
+            <p class="abstract-more" id="abstractMore" aria-hidden="true">Scroll for more</p>
+            <a class="abstract-doi" id="abstractDoi" target="_blank" rel="noopener">Read the full paper</a>
+        </footer>
+    </dialog>
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const open = document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
         }
+
+        // ----- Filter by research area (?area=slug from the Research page) -----
+        const AREA_NAMES = {
+            'psycholinguistics': 'Psycholinguistics',
+            'bi-multilingualism': 'Bi-/multilingualism',
+            'lexical-semantic': 'Lexical-semantic representation and processing',
+            'cognitive-control': 'Cognitive control in language processing',
+            'semantic-networks': 'Semantic networks',
+            'language-cognition-emotion': 'Language, cognition, and emotion',
+            'ai-in-education': 'AI in education (teaching and learning)',
+            'ai-and-cognition': 'AI and cognition',
+            'cross-cultural': 'Cross-cultural studies'
+        };
+
+        (function () {
+            const area = new URLSearchParams(location.search).get('area');
+            if (!area || !AREA_NAMES[area]) return;
+
+            let shown = 0;
+            document.querySelectorAll('.pub-item').forEach(function (item) {
+                const areas = (item.dataset.areas || '').split(' ');
+                if (areas.indexOf(area) === -1) item.hidden = true;
+                else shown++;
+            });
+
+            // Projects for this area lead the page — current work before past output.
+            let projects = 0;
+            document.querySelectorAll('#areaProjects .project-item').forEach(function (item) {
+                const areas = (item.dataset.areas || '').split(' ');
+                if (areas.indexOf(area) === -1) item.hidden = true;
+                else projects++;
+            });
+            if (projects) document.getElementById('areaProjects').hidden = false;
+
+            // A year heading with nothing left under it is noise — drop it too.
+            document.querySelectorAll('.pub-year').forEach(function (heading) {
+                let node = heading.nextElementSibling, live = false;
+                while (node && !node.classList.contains('pub-year')) {
+                    if (node.classList.contains('pub-item') && !node.hidden) live = true;
+                    node = node.nextElementSibling;
+                }
+                if (!live) heading.hidden = true;
+            });
+
+            // Same for a whole section (Journal Articles, Books, …) left empty.
+            document.querySelectorAll('main > section').forEach(function (section) {
+                const items = section.querySelectorAll('.pub-item');
+                if (items.length && !section.querySelector('.pub-item:not([hidden])')) {
+                    section.hidden = true;
+                }
+            });
+
+            document.getElementById('areaCounts').textContent =
+                [projects && (projects === 1 ? '1 project' : projects + ' projects'),
+                 shown && (shown === 1 ? '1 publication' : shown + ' publications')]
+                .filter(Boolean).join(' · ') || 'nothing listed yet';
+
+            // Swap the generic page header for the area header, so what you land on
+            // names the thing you clicked rather than making you hunt for it.
+            document.getElementById('pageHead').hidden = true;
+            document.title = AREA_NAMES[area] + ' | Work | Adel Chaouch-Orozco';
+            document.getElementById('filterArea').textContent = AREA_NAMES[area];
+            const bar = document.getElementById('filterBar');
+            bar.hidden = false;
+            requestAnimationFrame(function () { bar.classList.add('is-in'); });
+        })();
+
+        // ----- Abstract dialogs -----
+        (function () {
+            const dialog = document.getElementById('abstractDialog');
+            if (!dialog || typeof dialog.showModal !== 'function') return;
+
+            const heading = document.getElementById('abstractTitle');
+            const body = document.getElementById('abstractBody');
+            const venue = document.getElementById('abstractVenue');
+            const doi = document.getElementById('abstractDoi');
+            const scroller = document.getElementById('abstractScroll');
+            let opener = null;
+
+            // Marks whether the abstract overflows, and whether it is scrolled to the
+            // end — the fade and the "Scroll for more" cue both read these.
+            // The wrapper is the scrolling element now, not the paragraph — one scroll
+            // in the dialog, so measure and listen on that.
+            function updateScrollCue() {
+                const max = scroller.scrollHeight - scroller.clientHeight;
+                scroller.toggleAttribute('data-scrollable', max > 4);
+                scroller.toggleAttribute('data-at-end', max <= 4 || scroller.scrollTop >= max - 4);
+            }
+
+            scroller.addEventListener('scroll', updateScrollCue, { passive: true });
+            window.addEventListener('resize', updateScrollCue);
+
+            document.querySelectorAll('.pub-item').forEach(function (item) {
+                const button = item.querySelector('.abstract-link');
+                const source = item.querySelector('.pub-abstract');
+                if (!button || !source) return;
+
+                // Only revealed once we know the dialog works — no dead link without JS.
+                button.hidden = false;
+
+                button.addEventListener('click', function () {
+                    opener = button;
+                    heading.textContent = source.dataset.title;
+                    body.textContent = source.textContent;
+
+                    // Venue and DOI come straight from the citation above, so the
+                    // dialog never carries its own copy to fall out of date.
+                    const venueEl = item.querySelector('.pub-venue');
+                    venue.textContent = venueEl ? venueEl.textContent.trim() : '';
+                    const link = item.querySelector('.pub-title a');
+                    doi.href = link ? link.href : '#';
+                    doi.hidden = !link;
+
+                    dialog.showModal();
+                    scroller.scrollTop = 0;
+                    updateScrollCue();
+                });
+            });
+
+            // Close AND put focus back on the link that opened it, so a keyboard user
+            // returns to their place in the list rather than to the top of the document.
+            // Done here rather than in a 'close' listener because that event is not
+            // dispatched by every engine — restoring at the call site always runs.
+            function dismiss() {
+                dialog.close();
+                if (opener) opener.focus();
+            }
+
+            document.getElementById('abstractClose').addEventListener('click', dismiss);
+
+            // Click the backdrop (i.e. outside the white box) to dismiss.
+            dialog.addEventListener('click', function (event) {
+                if (event.target === dialog) dismiss();
+            });
+
+            // Esc is handled by <dialog> itself; this only re-homes the focus after it.
+            dialog.addEventListener('cancel', function () {
+                if (opener) requestAnimationFrame(function () { opener.focus(); });
+            });
+        })();
     </script>
 </body>
 </html>

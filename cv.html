@@ -3,153 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CV of Adel Chaouch-Orozco, Assistant Professor at City University of Hong Kong.">
+    <meta name="description" content="Curriculum vitae of Adel Chaouch-Orozco: Assistant Professor at City University of Hong Kong; PhD in Psycholinguistics, University of Reading.">
     <title>CV | Adel Chaouch-Orozco</title>
-    
-    
-    <!-- Fonts loaded via CSS @import -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/fonts/HankenGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final53">
 </head>
 <body>
-    <!-- Navigation -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Adel Chaouch-Orozco</a>
-            <div class="nav-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand-wrapper">
+                <a href="index.html" class="nav-brand">Adel <span class="nowrap">Chaouch-Orozco</span></a>
+                <span class="nav-tagline">Academic Website</span>
             </div>
+            <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="cv.html" class="active">CV</a></li>
+                <li><a href="teaching.html">Teaching<span class="nav-label-tail"> &amp; Research Supervision</span></a></li>
+                <li><a href="cv.html" class="active" aria-current="page">CV</a></li>
+                <li><a href="about.html">Beyond research</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <div class="page-main">
+
+    <main id="main">
     <section class="section">
-        <div class="container">
-            <h1>Curriculum Vitae</h1>
-
-            <!-- Download Button -->
-            <a href="#" class="cv-download">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                Download Full CV (PDF)
+        <h1>Curriculum Vitae</h1>
+        <p style="font-size: 1.05rem;">
+            My full CV—appointments, education, publications, guest lectures, and
+            teaching—is available as a PDF. Updated May 2026.
+        </p>
+        <p>
+            <a class="cv-download" href="assets/cv/adel-chaouch-orozco-cv.pdf" target="_blank" rel="noopener">
+                Download CV (PDF, 237&nbsp;KB)
             </a>
-
-            <!-- Education -->
-            <div class="cv-section" style="margin-top: 3rem;">
-                <h3>Education</h3>
-
-                <div class="cv-item">
-                    <div class="cv-date">2017 - 2021</div>
-                    <div class="cv-details">
-                        <h4>PhD in Psycholinguistics</h4>
-                        <p>University of Reading, United Kingdom</p>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-date">2015 - 2016</div>
-                    <div class="cv-details">
-                        <h4>MA in Psycholinguistics</h4>
-                        <p>University of York, United Kingdom</p>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-date">2013 - 2014</div>
-                    <div class="cv-details">
-                        <h4>MA in Applied Linguistics</h4>
-                        <p>University of Jaén, Spain</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Academic Positions -->
-            <div class="cv-section">
-                <h3>Academic Positions</h3>
-
-                <div class="cv-item">
-                    <div class="cv-date">2023 - Present</div>
-                    <div class="cv-details">
-                        <h4>Assistant Professor</h4>
-                        <p>Department of Linguistics and Translation</p>
-                        <p>City University of Hong Kong</p>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-date">2021 - 2023</div>
-                    <div class="cv-details">
-                        <h4>Postdoctoral Fellow</h4>
-                        <p>Brain, Language, and Cognition Laboratory</p>
-                        <p>The Hong Kong Polytechnic University</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Research Interests -->
-            <div class="cv-section">
-                <h3>Research Interests</h3>
-                <p style="padding: 1rem 0;">
-                    Psycholinguistics | Bilingualism | Semantic Memory | Network Science |
-                    Cross-cultural Cognition | Language & Emotion | Second Language Acquisition
-                </p>
-            </div>
-
-            <!-- Selected Awards -->
-            <div class="cv-section">
-                <h3>Selected Awards & Grants</h3>
-                <p style="padding: 1rem 0; color: var(--text-medium);">
-                    Details available in full CV.
-                </p>
-            </div>
-
-            <!-- Professional Service -->
-            <div class="cv-section">
-                <h3>Professional Service</h3>
-                <p style="padding: 1rem 0; color: var(--text-medium);">
-                    <strong>Reviewer for:</strong> Bilingualism: Language and Cognition, Studies in Second Language Acquisition,
-                    Applied Psycholinguistics, Second Language Research, International Journal of Bilingualism, and others.
-                </p>
-            </div>
-
-            <!-- Languages -->
-            <div class="cv-section">
-                <h3>Languages</h3>
-                <p style="padding: 1rem 0; color: var(--text-medium);">
-                    Spanish (Native) | English (Fluent) | French (Fluent) | Arabic (Heritage)
-                </p>
-            </div>
-
-        </div>
+        </p>
     </section>
 
-    <!-- Footer -->
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="mailto:adel.chaouchorozco@cityu.edu.hk">Email</a>
-                <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://lt.cityu.edu.hk/people/academic-staff/chaouch-orozco-adel" target="_blank">CityU</a>
-            </div>
-            <p>&copy; 2025 Adel Chaouch-Orozco. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="contact.html">Contact</a>
         </div>
+        <p>&copy; 2026 Adel Chaouch-Orozco</p>
     </footer>
+    </div><!-- /page-main -->
+    </div><!-- /page-shell -->
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const open = document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
         }
     </script>
 </body>

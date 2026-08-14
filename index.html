@@ -5,51 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Adel Chaouch-Orozco - Assistant Professor at City University of Hong Kong. Research in psycholinguistics, bilingualism, and cognitive science.">
     <title>Adel Chaouch-Orozco</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/fonts/HankenGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final53">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-banner" aria-hidden="true">
+        <picture>
+            <source srcset="assets/images/banner-1.webp" type="image/webp">
+            <img src="assets/images/banner-1.jpg" alt="" width="1600" height="320" fetchpriority="high">
+        </picture>
+    </div>
+    <div class="page-shell">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Adel Chaouch-Orozco</a>
-            <div class="nav-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand-wrapper">
+                <a href="index.html" class="nav-brand">Adel <span class="nowrap">Chaouch-Orozco</span></a>
+                <span class="nav-tagline">Academic Website</span>
             </div>
+            <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="teaching.html">Teaching<span class="nav-label-tail"> &amp; Research Supervision</span></a></li>
                 <li><a href="cv.html">CV</a></li>
+                <li><a href="about.html">Beyond research</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+    <div class="page-main">
+
+    <main id="main">
     <section class="hero">
         <div class="hero-content">
             <div class="hero-image">
-                <img src="assets/images/profile.jpg" alt="Adel Chaouch-Orozco">
+                <img src="assets/images/profile.jpg" alt="Adel Chaouch-Orozco" width="250" height="250">
             </div>
             <div class="hero-text">
-                <h1>Adel Chaouch-Orozco</h1>
-                <p class="hero-subtitle">Assistant Professor · City University of Hong Kong</p>
+                <h1>Adel <span class="nowrap">Chaouch-Orozco</span></h1>
+                <p class="hero-subtitle">Assistant Professor, City University of Hong Kong</p>
                 <p class="hero-bio">
-                    Psycholinguist studying how we represent and process meaning. My research explores lexical-semantic processes in monolinguals and bilinguals, combining computational methods with behavioral experiments to understand semantic memory, creativity, and emotion concepts across cultures.
+                    I’m a psycholinguist interested in how we represent and process meaning.
+                    My research centres on <strong>lexical-semantic processing</strong> in monolinguals
+                    and bi-/multilinguals—how meaning is stored, retrieved, and shaped by
+                    <strong>culture, cognition, and affect</strong>. I combine <strong>computational methods</strong>,
+                    <strong>network science</strong>, and psycholinguistic experiments, and I also study
+                    <strong>second language acquisition</strong> and tools for language proficiency
+                    assessment. I hold a PhD in Psycholinguistics from the University of Reading.
                 </p>
+                <p class="hero-email"><a href="mailto:adel.chaouchorozco@cityu.edu.hk">adel.chaouchorozco@cityu.edu.hk</a></p>
                 <div class="hero-links">
-                    <a href="mailto:adel.chaouchorozco@cityu.edu.hk">Email</a>
-                    <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Scholar</a>
-                    <a href="https://orcid.org/0000-0002-5765-8196" target="_blank">ORCID</a>
-                    <a href="https://lt.cityu.edu.hk/people/academic-staff/chaouch-orozco-adel" target="_blank">CityU</a>
+                    <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+                    <a href="https://www.researchgate.net/profile/Adel-Chaouch-Orozco" target="_blank" rel="noopener">ResearchGate</a>
+                    <a href="https://x.com/adelchaouch" target="_blank" rel="noopener">X (Twitter)</a>
+                    <a href="https://www.linkedin.com/in/adel-chaouch-orozco-a3b42b47/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <p class="section-title">Research</p>
+        <h2>Research</h2>
         <div class="research-grid">
             <div class="research-card">
                 <h3>Lexical-Semantic Processing</h3>
@@ -57,57 +81,73 @@
             </div>
             <div class="research-card">
                 <h3>Bilingual Cognition</h3>
-                <p>Cross-linguistic influence, translation equivalence, and lexical organization.</p>
+                <p>Cross-linguistic influence, translation equivalence, and lexical organization in bilinguals.</p>
             </div>
             <div class="research-card">
                 <h3>Semantic Networks</h3>
-                <p>Network science tools to model mental lexicon structure and attrition.</p>
+                <p>Using network science to model mental lexicon structure and language attrition.</p>
             </div>
             <div class="research-card">
                 <h3>Language & Emotion</h3>
                 <p>How emotion concepts vary across languages and cultures.</p>
             </div>
         </div>
-        <p style="margin-top: 1.5rem;"><a href="research.html" class="link-arrow">More about my research</a></p>
+        <p class="section-link"><a href="research.html">Learn more about my research</a></p>
     </section>
 
-    <section class="section" style="background: var(--gray-100); max-width: none; padding-left: calc((100% - 900px) / 2 + 1.5rem); padding-right: calc((100% - 900px) / 2 + 1.5rem);">
-        <div style="max-width: 900px;">
-            <p class="section-title">Selected Publications</p>
-            <div class="pub-list">
-                <div class="pub-item">
-                    <div class="pub-title">Network science reveals the early signs of L1 lexical attrition</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong> & Martín-Villena, F. · <em>Bilingualism: Language and Cognition</em> 2025</div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-title">Are translation equivalents really equivalent?</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., et al. · <em>International Journal of Bilingualism</em> 2024</div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-title">The elusive impact of L2 immersion on translation priming</div>
-                    <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, González Alonso, J., et al. · <em>Studies in Second Language Acquisition</em> 2023</div>
-                </div>
-                <div class="pub-item">
-                    <div class="pub-title">The Cambridge Handbook of Third Language Acquisition</div>
-                    <div class="pub-authors">Cabrelli, J., <strong>Chaouch-Orozco, A.</strong>, et al. (Eds.) · <em>Cambridge University Press</em> 2023</div>
-                </div>
+    <section class="section">
+        <h2>Selected Publications</h2>
+        <div class="pub-list">
+            <div class="pub-item">
+                <div class="pub-title">Cultural attitudes towards the future shape the semantic structure of emotion concepts</div>
+                <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, Li, X., & Li, P.</div>
+                <div class="pub-venue">Humanities and Social Sciences Communications, 2026</div>
             </div>
-            <p style="margin-top: 1.5rem;"><a href="publications.html" class="link-arrow">All publications</a></p>
+            <div class="pub-item">
+                <div class="pub-title">Network science reveals the early signs of L1 lexical attrition</div>
+                <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong> & Martin-Villena, F.</div>
+                <div class="pub-venue">Bilingualism: Language and Cognition, 2025</div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">Digits switch differently: Evidence of divergent cognitive control mechanisms</div>
+                <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong> & Liu, H.</div>
+                <div class="pub-venue">Journal of Experimental Psychology: Learning, Memory, and Cognition, 2025</div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">Are translation equivalents really equivalent? Evidence from concreteness effects</div>
+                <div class="pub-authors"><strong>Chaouch-Orozco, A.</strong>, Gonzalez Alonso, J., Dunabeitia, J.A., & Rothman, J.</div>
+                <div class="pub-venue">International Journal of Bilingualism, 2024</div>
+            </div>
         </div>
+        <p class="section-link"><a href="publications.html">View all publications</a></p>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-links">
-            <a href="mailto:adel.chaouchorozco@cityu.edu.hk">Email</a>
-            <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Scholar</a>
             <a href="contact.html">Contact</a>
         </div>
-        <p>© 2025 Adel Chaouch-Orozco</p>
+        <p>&copy; 2026 Adel Chaouch-Orozco</p>
     </footer>
+    </div><!-- /page-main -->
+    </div><!-- /page-shell -->
 
     <script>
+        // Dev helper: try banners via ?banner=0|1|2|3 (0 = the hand-drawn SVG)
+        (function () {
+            const b = new URLSearchParams(location.search).get('banner');
+            if (!b || !/^[0-3]$/.test(b)) return;
+            const img = document.querySelector('.page-banner img, .hero-banner img');
+            const src = document.querySelector('.page-banner source, .hero-banner source');
+            if (!img) return;
+            if (b === '0') { if (src) src.remove(); img.src = 'assets/images/banner-0.svg'; }
+            else { if (src) src.srcset = 'assets/images/banner-' + b + '.webp'; img.src = 'assets/images/banner-' + b + '.jpg'; }
+        })();
+    </script>
+    <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const open = document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
         }
     </script>
 </body>

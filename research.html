@@ -3,147 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research by Adel Chaouch-Orozco on psycholinguistics, bilingualism, and semantic processing.">
+    <meta name="description" content="Research by Adel Chaouch-Orozco on how lexical and semantic knowledge is represented, accessed, and reorganized across languages and cultures.">
     <title>Research | Adel Chaouch-Orozco</title>
-    
-    
-    <!-- Fonts loaded via CSS @import -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/fonts/HankenGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final53">
 </head>
 <body>
-    <!-- Navigation -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Adel Chaouch-Orozco</a>
-            <div class="nav-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand-wrapper">
+                <a href="index.html" class="nav-brand">Adel <span class="nowrap">Chaouch-Orozco</span></a>
+                <span class="nav-tagline">Academic Website</span>
             </div>
+            <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="research.html" class="active" aria-current="page">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="teaching.html">Teaching<span class="nav-label-tail"> &amp; Research Supervision</span></a></li>
                 <li><a href="cv.html">CV</a></li>
+                <li><a href="about.html">Beyond research</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <div class="page-main">
+
+    <main id="main">
     <section class="section">
-        <div class="container">
-            <h1>Research</h1>
-            <p style="font-size: 1.1rem; max-width: 800px;">
-                My research investigates lexical-semantic processes and their implications for broader cognition,
-                while considering the impact of cross-cultural and cross-linguistic factors. I approach these questions
-                by combining computational methods with behavioral experiments.
-            </p>
+        <h1>Research</h1>
+        <p style="font-size: 1.05rem;">
+            My research investigates how lexical and semantic knowledge is
+            represented, accessed, and reorganized, and how these processes relate
+            to broader aspects of cognition. I examine these questions across
+            languages and cultures by combining behavioral experiments with
+            computational and network-based methods.
+        </p>
+    </section>
+
+    <section class="section" id="research-areas">
+        <h2>Research Areas</h2>
+
+        <div class="area-rows">
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Psycholinguistics</h3>
+                    <p>
+                    Psycholinguistics asks how language is represented,
+                    understood, and produced in the mind. My interests
+                    span the field broadly, including comprehension,
+                    production, learning, memory, and the cognitive
+                    processes that make everyday language use possible.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=psycholinguistics">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/psycholinguistics-360.webp 360w,
+                                        assets/images/research/psycholinguistics-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/psycholinguistics-720.jpg"
+                             srcset="assets/images/research/psycholinguistics-360.jpg 360w,
+                                     assets/images/research/psycholinguistics-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A participant wearing an EEG headband reads a sentence displayed on a monitor in a psycholinguistics lab">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Bi-/multilingualism</h3>
+                    <p>
+                    Most people in the world use more than one language.
+                    My research explores how these languages coexist and
+                    interact, and how proficiency, immersion, language
+                    use, and individual differences shape multilingual
+                    experience over time.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=bi-multilingualism">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/multilingualism-360.webp 360w,
+                                        assets/images/research/multilingualism-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/multilingualism-720.jpg"
+                             srcset="assets/images/research/multilingualism-360.jpg 360w,
+                                     assets/images/research/multilingualism-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A Hong Kong street crowded with shop signs in Chinese, Arabic, English and Indonesian">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Lexical-semantic representation and processing</h3>
+                    <p>
+                    How are words and concepts represented, and how do
+                    their meanings become available? I study semantic
+                    similarity, concreteness, lexical associations, and
+                    translation equivalents to understand how meaning is
+                    organized within and across languages.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=lexical-semantic">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/lexical-semantic-360.webp 360w,
+                                        assets/images/research/lexical-semantic-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/lexical-semantic-720.jpg"
+                             srcset="assets/images/research/lexical-semantic-360.jpg 360w,
+                                     assets/images/research/lexical-semantic-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="Two children matching picture cards across a table">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Cognitive control in language processing</h3>
+                    <p>
+                    Using more than one language requires constant
+                    selection and adaptation. My research examines how
+                    speakers manage competing languages, switch between
+                    them, and adjust control in response to proficiency,
+                    context, task demands, and incoming information.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=cognitive-control">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/cognitive-control-360.webp 360w,
+                                        assets/images/research/cognitive-control-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/cognitive-control-720.jpg"
+                             srcset="assets/images/research/cognitive-control-360.jpg 360w,
+                                     assets/images/research/cognitive-control-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A road sign showing a forked arrow, marking a choice between two routes">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Semantic networks</h3>
+                    <p>
+                    Words and concepts form richly connected systems
+                    rather than isolated entries. Using network science, I
+                    examine how the structure of these systems supports
+                    efficient processing and changes across individuals,
+                    languages, learning histories, and linguistic
+                    environments.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=semantic-networks">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/semantic-networks-360.webp?v=4 360w,
+                                        assets/images/research/semantic-networks-720.webp?v=4 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/semantic-networks-720.jpg?v=4"
+                             srcset="assets/images/research/semantic-networks-360.jpg?v=4 360w,
+                                     assets/images/research/semantic-networks-720.jpg?v=4 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A corkboard concept map of pinned notes: the word animals at the centre, linked by coloured string to wild animals, pets, farm animals and sea animals, each with its own examples">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Language, cognition, and emotion</h3>
+                    <p>
+                    Language, cognition, and emotion continually shape one
+                    another and are central to human experience. My
+                    research explores this interplay, asking how language
+                    influences thought and feeling, and how emotional and
+                    cognitive processes, in turn, shape language.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=language-cognition-emotion">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/language-emotion-360.webp 360w,
+                                        assets/images/research/language-emotion-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/language-emotion-720.jpg"
+                             srcset="assets/images/research/language-emotion-360.jpg 360w,
+                                     assets/images/research/language-emotion-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A family in animated conversation around a shared meal">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>AI in education (teaching and learning)</h3>
+                    <p>
+                    AI is changing the conditions under which teaching and
+                    learning take place. Careful research is needed to
+                    understand how these tools should be designed, when
+                    they improve learning, whom they benefit, and where
+                    their limitations lie.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=ai-in-education">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/ai-education-360.webp 360w,
+                                        assets/images/research/ai-education-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/ai-education-720.jpg"
+                             srcset="assets/images/research/ai-education-360.jpg 360w,
+                                     assets/images/research/ai-education-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="Secondary-school students working at laptops while a teacher leans in to help">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>AI and cognition</h3>
+                    <p>
+                    AI offers new ways to investigate meaning, reasoning,
+                    creativity, and knowledge. Comparing human and
+                    artificial systems can reveal shared patterns,
+                    important differences, and new insights into both the
+                    possibilities of machines and the nature of human
+                    cognition.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=ai-and-cognition">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/ai-cognition-360.webp 360w,
+                                        assets/images/research/ai-cognition-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/ai-cognition-720.jpg"
+                             srcset="assets/images/research/ai-cognition-360.jpg 360w,
+                                     assets/images/research/ai-cognition-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A researcher at a screen displaying a hierarchical syntax tree">
+                    </picture>
+                </figure>
+            </article>
+
+            <article class="area-row">
+                <div class="area-text">
+                    <h3>Cross-cultural studies</h3>
+                    <p>
+                    Language and culture develop in close interaction,
+                    shaping how people understand meaning, emotion, and
+                    experience. My research examines this relationship
+                    across communities, while separating cultural
+                    influences from linguistic differences and individual
+                    variation.
+                    </p>
+                    <p class="area-studies"><a href="publications.html?area=cross-cultural">See work in this area</a></p>
+                </div>
+                <figure class="area-figure">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/research/cross-cultural-360.webp 360w,
+                                        assets/images/research/cross-cultural-720.webp 720w"
+                                sizes="(max-width: 760px) calc(100vw - 3rem), 320px">
+                        <img src="assets/images/research/cross-cultural-720.jpg"
+                             srcset="assets/images/research/cross-cultural-360.jpg 360w,
+                                     assets/images/research/cross-cultural-720.jpg 720w"
+                             sizes="(max-width: 760px) calc(100vw - 3rem), 320px"
+                             width="720" height="480" loading="lazy" decoding="async"
+                             alt="A performer carrying a dragon-dance head during a street festival">
+                    </picture>
+                </figure>
+            </article>
         </div>
     </section>
 
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Research Areas</h2>
-
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>Semantic Memory in Bilinguals</h3>
-                    <p>
-                        How is meaning represented in the bilingual mind? My work has examined whether translation
-                        equivalents are truly equivalent, revealing that factors like concreteness modulate
-                        cross-linguistic connections. I've also studied how L2 immersion reshapes the links
-                        between translation equivalents over time.
-                    </p>
-                </div>
-
-                <div class="research-card">
-                    <h3>Network Science & the Mental Lexicon</h3>
-                    <p>
-                        Using tools from network science, I model the structure of semantic memory. Recent work
-                        shows that network topology can reveal early signs of L1 lexical attrition in L2-dominant
-                        bilinguals, offering new methods for understanding language change.
-                    </p>
-                </div>
-
-                <div class="research-card">
-                    <h3>Semantic Memory & Verbal Creativity</h3>
-                    <p>
-                        An emerging line of research explores how the organization of semantic memory relates
-                        to creative language use. How do people with different semantic network structures
-                        differ in their creative output?
-                    </p>
-                </div>
-
-                <div class="research-card">
-                    <h3>Emotion Concepts Across Cultures</h3>
-                    <p>
-                        Emotion words don't translate perfectly across languages. I investigate how emotion
-                        concepts vary cross-culturally and what this tells us about the relationship between
-                        language, thought, and affective experience.
-                    </p>
-                </div>
-
-                <div class="research-card">
-                    <h3>L2/L3 Acquisition & Processing</h3>
-                    <p>
-                        I study how additional languages are acquired and processed, including cross-linguistic
-                        transfer in third language acquisition and how proficiency assessments (like LexTALE)
-                        relate to broader language competence.
-                    </p>
-                </div>
-
-                <div class="research-card">
-                    <h3>Computational Approaches to Language</h3>
-                    <p>
-                        I use computational tools including large language models, semantic similarity measures,
-                        and network analysis to complement traditional behavioral methods and gain new insights
-                        into language processing.
-                    </p>
-                </div>
+    <section class="section">
+        <h2>Active Research Projects</h2>
+        <div class="project-list">
+            <div class="project-item" data-areas="language-cognition-emotion cross-cultural semantic-networks">
+                <p class="project-title">EVOLVE: Examining Valence-mOduLated Variation of Emotion Concepts Across Cultures</p>
+                <p class="project-meta">Principal Investigator &middot; GRF &middot; with P. Li and K. Lindquist &middot; since 2025</p>
+                <p class="project-desc">
+                    Do speakers of different languages carve up the
+                    emotional world in the same way? This project asks
+                    whether how pleasant or unpleasant a feeling is
+                    changes how consistently its concept travels across
+                    cultures.
+                </p>
+            </div>
+            <div class="project-item" data-areas="language-cognition-emotion cross-cultural psycholinguistics">
+                <p class="project-title">Translations: Psycholinguistic, Social Semiotic, Neuroanatomical, Health Technological and Psychological Perspectives on &lsquo;Voice Hearing&rsquo;</p>
+                <p class="project-meta">Principal Investigator &middot; IG (CityUHK&ndash;Exeter) &middot; with M. J. Flexer and V. Neil &middot; since 2025</p>
+                <p class="project-desc">
+                    Hearing a voice that nobody else can hear gets
+                    described very differently depending on who is asking.
+                    This CityUHK&ndash;Exeter collaboration puts
+                    psycholinguistics, social semiotics, neuroanatomy,
+                    health technology and psychology to work on the same
+                    experience, to see what each perspective can and
+                    cannot capture.
+                </p>
+            </div>
+            <div class="project-item" data-areas="ai-in-education ai-and-cognition">
+                <p class="project-title">MODERA: Moderation and Optimization of Discussions with Enhanced Reasoning AI</p>
+                <p class="project-meta">Principal Investigator &middot; TDG (CityU) &middot; since 2026</p>
+                <p class="project-desc">
+                    Running a good group discussion is one of the hardest
+                    things to do in a large class. This project builds and
+                    tests an AI moderator that keeps a discussion on track
+                    and pushes students to reason further, and asks when
+                    that support genuinely helps them learn.
+                </p>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <div class="container">
-            <h2>Methods</h2>
-            <p>My research employs a variety of methods to investigate language and cognition:</p>
+        <h2>Methods</h2>
+        <p>My research uses a combination of behavioral and computational methods.</p>
 
-            <div class="research-grid" style="margin-top: 1.5rem;">
-                <div class="research-card">
-                    <h3>Behavioral Experiments</h3>
-                    <p>Reaction time studies, priming paradigms, and production tasks to measure real-time language processing.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Network Science</h3>
-                    <p>Graph-theoretic analysis of semantic networks derived from word association data and distributional semantics.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Computational Modeling</h3>
-                    <p>Large language models and distributional semantic models to quantify meaning similarity and predict behavior.</p>
-                </div>
+        <div class="research-grid methods-grid">
+            <div class="research-card">
+                <h3>Behavioral Experiments</h3>
+                <p>
+                    I design behavioral experiments to investigate lexical-semantic processing,
+                    language production, and their relationships with broader cognitive processes.
+                </p>
+            </div>
+            <div class="research-card">
+                <h3>Network Science</h3>
+                <p>
+                    I use graph-theoretic methods to analyze semantic
+                    networks derived from behavioral and linguistic data and
+                    to examine how their organization varies across
+                    individuals, languages, and experiences.
+                </p>
+            </div>
+            <div class="research-card">
+                <h3>Computational Modeling</h3>
+                <p>
+                    I use computational and distributional semantic models
+                    to quantify relationships between concepts, characterize
+                    patterns in linguistic data, and generate predictions
+                    about human behavior.
+                </p>
             </div>
         </div>
     </section>
+    <section class="section">
+        <h2>Data and materials</h2>
+        <p>
+            Data, stimuli, materials, and analysis code from my studies are available on
+            the Open Science Framework, enabling others to reproduce or extend the work.
+            Each paper links to its project page, while all publicly available resources
+            are collected in my
+            <a href="https://osf.io/zx2c3/" target="_blank" rel="noopener">OSF profile</a>.
+        </p>
+    </section>
 
-    <!-- Footer -->
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="mailto:adel.chaouchorozco@cityu.edu.hk">Email</a>
-                <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://lt.cityu.edu.hk/people/academic-staff/chaouch-orozco-adel" target="_blank">CityU</a>
-            </div>
-            <p>&copy; 2025 Adel Chaouch-Orozco. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="contact.html">Contact</a>
         </div>
+        <p>&copy; 2026 Adel Chaouch-Orozco</p>
     </footer>
+    </div><!-- /page-main -->
+    </div><!-- /page-shell -->
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const open = document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
         }
+
+        // Research areas ease in as you reach them. Opt in from JS so the content
+        // is never hidden when the script is unavailable, and skip it entirely for
+        // anyone who asked for less motion.
+        //
+        // Deliberately position-based rather than IntersectionObserver: a jump
+        // (an #research-areas anchor, End, a restored scroll position) moves past
+        // rows without ever rendering them mid-viewport, so an observer never fires
+        // for them and they would stay invisible for good. Testing `top` catches
+        // anything at or above the fold, however fast the page got there.
+        (function () {
+            const wrap = document.querySelector('.area-rows');
+            if (!wrap) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            wrap.classList.add('reveal-on');
+            let rows = [].slice.call(wrap.querySelectorAll('.area-row'));
+            let queued = false;
+
+            function sweep() {
+                queued = false;
+                rows = rows.filter(function (row) {
+                    if (row.getBoundingClientRect().top >= window.innerHeight * 0.9) return true;
+                    row.classList.add('is-in');
+                    return false;
+                });
+                if (!rows.length) {
+                    window.removeEventListener('scroll', request);
+                    window.removeEventListener('resize', request);
+                }
+            }
+
+            function request() {
+                if (queued) return;
+                queued = true;
+                requestAnimationFrame(sweep);
+            }
+
+            window.addEventListener('scroll', request, { passive: true });
+            window.addEventListener('resize', request);
+            // bfcache restore and background-tab loads both hand us a scroll
+            // position without a scroll event; re-check on the way back in.
+            window.addEventListener('pageshow', request);
+            document.addEventListener('visibilitychange', request);
+            sweep();
+        })();
     </script>
 </body>
 </html>

@@ -1,0 +1,1502 @@
+/* ===== Milestone 5 — full-width banner · sticky left rail · modern grotesque ===== */
+/* Ink #111 on white · whisper-blue bands #f3f7fb · mint highlight #dcead0 (the one
+   link/state mark — orange is retired) · deep-space blue #04395e tagline · Prussian footer #031d44 */
+/* Titles: Bricolage Grotesque | Body: Hanken Grotesk */
+
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('../fonts/BricolageGrotesque-var.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Hanken Grotesk';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/HankenGrotesk-var.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Hanken Grotesk';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/HankenGrotesk-italic-var.woff2') format('woff2');
+}
+
+/* Metric-tuned fallback to minimize swap reflow */
+@font-face {
+    font-family: 'Hanken Grotesk Fallback';
+    src: local('Arial');
+    size-adjust: 100%;
+    ascent-override: 98%;
+    descent-override: 26%;
+    line-gap-override: 0%;
+}
+
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f3f7fb;
+    --bg-soft: #f3f7fb;
+    --mint: #f1f7ed;
+    --highlight: #dcead0;
+    --text: #111111;
+    --text-body: #222222;
+    --text-secondary: #3a3f45;
+    --text-light: #55595f;
+    --navy-deep: #031d44;
+    --navy-mid: #04395e;
+    --navy-meta: #97a9c4;
+    --border: #dfe5ea;
+
+    /* How far the mint bar drops below the glyph box = the body half-leading
+       (line-height 1.7). One distance for every link on every page. */
+    --hl-drop: 0.2em;
+
+    --font-display: 'Bricolage Grotesque', 'Hanken Grotesk', sans-serif;
+    --font-body: 'Hanken Grotesk', 'Hanken Grotesk Fallback', -apple-system, sans-serif;
+
+    --max-width: 900px;
+    --nav-width: 320px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+    font-size: 106.25%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.7;
+}
+
+/* Full-bleed banner above everything; rail starts below it */
+.page-banner {
+    height: 300px;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+}
+
+.page-banner picture,
+.page-banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-shell {
+    display: grid;
+    grid-template-columns: var(--nav-width) 1fr;
+}
+
+.page-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* A grid item's default `min-width: auto` refuses to shrink below its content,
+       so one wide descendant (the 3300px book carousel) stretched this column past
+       the viewport and pushed every page section off-screen to the right.
+       Pinning it to 0 lets the carousel scroll inside its own box instead. */
+    min-width: 0;
+}
+
+main { flex: 1; }
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    background-image: linear-gradient(0deg, var(--highlight), var(--highlight));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 0.2em;
+    /* Inline links sit in a glyph-height box, so the bar would ride up into the
+       descenders. Drop it by the half-leading to match blockified links. */
+    padding-bottom: var(--hl-drop);
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a:hover {
+    background-size: 100% 100%;
+}
+
+/* On very wide screens, let the text measure use a little more of the column */
+@media (min-width: 1700px) {
+    :root { --max-width: 1040px; }
+}
+
+/* ===== Navigation — sticky left rail (below the banner) ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    min-height: 100%;
+    padding: 3rem 2rem;
+}
+
+.nav-brand-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.nav-brand-wrapper::after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: var(--text);
+    margin-top: 1.1rem;
+}
+
+.nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    border: none;
+    background-image: none;
+    line-height: 1.25;
+}
+
+.nav-brand:hover {
+    border: none;
+}
+
+.nav-tagline {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--navy-mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    /* Roomier than the old 0.35rem: a wrapped two-line label needs the rows to
+       read as separate items, not as one dense stack. */
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin: 0 -0.75rem;
+    font-size: 1.05rem;
+    /* tighter than body leading so a wrapped label reads as one item */
+    line-height: 1.35;
+    color: var(--text-secondary);
+    border: none;
+    background-image: linear-gradient(0deg, var(--highlight), var(--highlight));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 100%;
+    transition: color 0.3s, background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-links a:hover {
+    background-size: 100% 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text);
+}
+
+/* Current page = the mint highlighter left switched on, text a shade heavier.
+   Same one mint mechanic as every other link. */
+.nav-links a.active {
+    font-weight: 600;
+    background-size: 100% 100%;
+}
+
+.nav-toggle { display: none; cursor: pointer; padding: 0.5rem; background: none; border: none; }
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; }
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    z-index: 10;
+    padding: 0.6rem 1.25rem;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+}
+
+.skip-link:focus { left: 0; }
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+.footer a:focus-visible {
+    outline-color: var(--mint);
+}
+
+/* ===== Hero / Profile ===== */
+.hero {
+    padding: 0 0 4rem;
+}
+
+.hero-banner {
+    height: 300px;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-banner svg,
+.hero-banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 0;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.hero-image {
+    margin-top: -140px;
+}
+
+.hero-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--bg);
+    box-shadow: 0 2px 14px rgba(3, 29, 68, 0.12);
+}
+
+.hero-text h1 {
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.hero-bio {
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.hero-email {
+    margin: 1.9rem 0 0;
+    font-size: 0.95rem;
+}
+
+.hero-email::before {
+    content: '';
+    display: block;
+    width: 2.75rem;
+    height: 3px;
+    margin-bottom: 1.2rem;
+    background: var(--text);
+}
+
+.hero-email a { color: var(--text); }
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.55rem;
+    font-size: 0.95rem;
+}
+
+.hero-links a {
+    color: var(--text);
+    /* flex items are already line-height tall — the drop is built in */
+    padding-bottom: 0;
+}
+
+/* ===== Sections — full-bleed bands, content centered on the 900px measure ===== */
+.section {
+    padding: 3.5rem max(2rem, calc((100% - var(--max-width)) / 2));
+}
+
+main > section:nth-child(even) {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Opt a section out of the alternating band — used on Teaching, which the owner
+   wants to read as one continuous surface rather than white/blue halves. */
+main > section.flat {
+    background: var(--bg);
+    border-top: 0;
+    border-bottom: 0;
+    padding-top: 0;
+}
+
+main > section.flat:first-child { padding-top: 3.5rem; }
+
+/* A heading that belongs UNDER the page's h1 rather than beside it: no ink bar,
+   smaller, so "Courses" reads as part of Teaching while a plain h2 like
+   "Research Supervision" reads as its own top-level section. */
+h2.subsection {
+    font-size: 1.3rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+h2.subsection::before { display: none; }
+
+/* A section heading that sits co-equal with the page h1 (Research Supervision
+   is a top-level section of the Teaching page, not a subsection of it). */
+h2.h2-major {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+}
+
+/* Callout — points prospective students at the research areas. Ink rule on the
+   left (the masthead motif), tinted ground so it lifts off the page. */
+.callout {
+    margin: 1.75rem 0 0;
+    padding: 1.1rem 1.35rem;
+    background: var(--bg-alt);
+    border-left: 3px solid var(--text);
+}
+
+.callout p {
+    margin: 0;
+    font-size: 1.02rem;
+    color: var(--text-body);
+}
+
+.callout p + p { margin-top: 0.55rem; }
+
+.callout .callout-lead { font-weight: 600; color: var(--text); }
+
+/* inside the whisper-blue opportunities box, invert the ground so it still lifts */
+.opportunities-box .callout {
+    background: var(--bg);
+    margin-top: 1rem;
+    padding: 0.85rem 1.1rem;
+}
+
+.opportunities-box .callout p { font-size: 0.92rem; }
+
+/* ===== Research areas — one topic per row, photo alternating side ===== */
+.area-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
+
+/* Text leads, photo supports: at the 900px measure that is roughly 530 / 315,
+   which puts the photo's height close to the text block instead of towering
+   over it (it was 1.7x taller when the columns were even and the crop 4:3). */
+.area-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Even rows put the photo on the left. Mirror the TEMPLATE and place both items
+   explicitly — using `order` alone moved the figure into the 1.7fr column, so the
+   left-hand photos came out 530px wide against 311px of text. Source order stays
+   text-first, so the reading order is the same for screen readers on every row. */
+.area-row:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+}
+
+.area-row:nth-child(even) .area-figure { grid-column: 1; grid-row: 1; }
+.area-row:nth-child(even) .area-text   { grid-column: 2; grid-row: 1; }
+
+.area-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 0.55rem;
+}
+
+.area-text p {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+}
+
+/* Link out to the filtered publications list. Sized below the description so it
+   reads as a next step, not as part of the prose. */
+.area-studies { margin: 0.75rem 0 0; font-size: 0.9rem; }
+
+.area-figure { margin: 0; }
+
+.area-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    /* same light source as the portrait's shadow, so the photo sits on the
+       page rather than being pasted onto it */
+    box-shadow: 0 12px 28px rgba(3, 29, 68, 0.10);
+}
+
+/* ----- reveal on scroll -----
+   The class is added by JS, so with no script (or reduced motion) everything
+   is simply visible: nothing is ever hidden behind an animation that
+   might not run. */
+.area-rows.reveal-on .area-text,
+.area-rows.reveal-on .area-figure {
+    opacity: 0;
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.area-rows.reveal-on .area-text { transform: translateY(12px); }
+
+/* the photo drifts in from its own side, so the alternation is felt, not just seen */
+.area-rows.reveal-on .area-figure { transform: translate(18px, 14px) scale(0.985); transition-delay: 0.1s; }
+.area-rows.reveal-on .area-row:nth-child(even) .area-figure { transform: translate(-18px, 14px) scale(0.985); }
+
+.area-rows.reveal-on .area-row.is-in .area-text,
+.area-rows.reveal-on .area-row.is-in .area-figure {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 760px) {
+    .area-rows { gap: 2.25rem; }
+
+    .area-row,
+    .area-row:nth-child(even) { grid-template-columns: 1fr; gap: 1rem; }
+
+    /* stacked: always text then photo, so the alternation doesn't shuffle */
+    .area-row:nth-child(even) .area-text,
+    .area-row:nth-child(even) .area-figure { grid-column: 1; grid-row: auto; }
+}
+
+/* ===== Beyond research — books ===== */
+.carousel { position: relative; margin-top: 1.1rem; }
+
+.carousel-track {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    padding: 0.25rem 0 1rem;
+    scrollbar-width: none;                 /* the arrows and the edge fade do the signalling */
+    -webkit-overflow-scrolling: touch;
+    /* soft fade at both ends so the row reads as continuing past the edge */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 1.5rem, #000 calc(100% - 1.5rem), transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 1.5rem, #000 calc(100% - 1.5rem), transparent 100%);
+}
+
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+
+/* no fade while scrolled hard against an end — otherwise the first/last card
+   sits permanently dimmed */
+.carousel[data-at-start] .carousel-track {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%);
+            mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%);
+}
+
+.carousel[data-at-end] .carousel-track {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 1.5rem);
+            mask-image: linear-gradient(90deg, transparent 0, #000 1.5rem);
+}
+
+.carousel[data-at-start][data-at-end] .carousel-track {
+    -webkit-mask-image: none; mask-image: none;
+}
+
+.book-card {
+    flex: 0 0 150px;
+    scroll-snap-align: start;
+    max-width: 150px;
+}
+
+/* The whole card is the link. No mint bar here — on a cover it would read as an
+   underline under the artwork; the lift and the title colour carry the affordance. */
+.book-link {
+    display: block;
+    color: inherit;
+    background-image: none;
+    padding-bottom: 0;
+}
+
+.book-cover {
+    display: block;
+    width: 150px;
+    height: 225px;                          /* every cover the same box, 2:3 */
+    object-fit: cover;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 18px rgba(3, 29, 68, 0.10);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.book-link:hover .book-cover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 26px rgba(3, 29, 68, 0.18);
+}
+
+.book-link:hover .book-title { color: var(--navy-mid); }
+
+.book-link:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+.book-title {
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+    margin: 0.7rem 0 0;
+}
+
+.book-author {
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--text-light);
+    margin: 0.15rem 0 0;
+}
+
+/* Arrows: quiet until wanted, and hidden entirely when nothing can scroll */
+.carousel-nav {
+    position: absolute;
+    top: 112px;                             /* centred on the cover, not the whole card */
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(3, 29, 68, 0.12);
+    transition: opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.carousel-nav.prev { left: -0.75rem; }
+.carousel-nav.next { right: -0.75rem; }
+.carousel-nav:hover { background: var(--highlight); }
+.carousel-nav[hidden] { display: none; }
+
+/* No count beside it (owner's call) — the flex row is gone with it. */
+.book-year-heading { margin-top: 2.5rem; }
+
+.book-credit { font-size: 0.8rem; color: var(--text-light); margin-top: 1.25rem; }
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track { scroll-behavior: auto; }
+}
+
+/* ===== Listening: Spotify player =====
+   Spotify's embed reflows on its own: wide, it is a horizontal bar with a short
+   list; narrow, it becomes the portrait card — cover and controls stacked above a
+   numbered track list. The owner wants the portrait one, so the card is capped at
+   500px — measured: 380px clips the title to "Last.fm Top 30 · Last", 460px is a
+   hair tight, 500px clears it (re-verified: 400px cuts it to "Last.fm Top 30 · Last 9").
+   Width is therefore NOT the dial for resizing this; height is — and with width fixed
+   at 500 the one proportion that reads as chosen rather than arbitrary is the SQUARE.
+   A square and a clean row edge are mutually exclusive here: measured, the header is
+   ~142px and rows are ~50px, so whole rows land at 469 (five) and 519 (six), neither
+   of which is square. 500 keeps the proportion and leaves the sixth row half-visible,
+   which is the usual cue that a list scrolls. If a sealed bottom edge ever matters
+   more than the square, 519 is the number.
+   It stands alone, no copy beside it (owner's call). min-height holds the space if
+   Spotify is slow or blocked; the shadow is the same one the book covers carry. */
+.player {
+    margin-top: 1.4rem;
+    max-width: 500px;
+    min-height: 500px;
+    box-shadow: 0 8px 18px rgba(3, 29, 68, 0.10);
+}
+
+.player iframe { display: block; border: 0; width: 100%; height: 500px; }
+
+/* ===== Research projects ===== */
+.project-list { margin-top: 1rem; }
+
+.project-item { padding: 1rem 0; }
+
+.project-item + .project-item { border-top: 1px solid var(--border); }
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: var(--text);
+    margin: 0 0 0.3rem;
+}
+
+.project-meta {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.project-desc {
+    margin: 0.55rem 0 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* Solid-background link components never inherit the highlight */
+.cv-download,
+.cv-download:hover {
+    background-image: none;
+}
+
+.section-link { margin-top: 1.5rem; }
+
+.nowrap { white-space: nowrap; }
+
+h1 {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+h2::before {
+    content: '';
+    display: block;
+    width: 2.75rem;
+    height: 3px;
+    background: var(--text);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-body);
+}
+
+p:last-child { margin-bottom: 0; }
+
+/* ===== Research Areas ===== */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Three methods, three columns — a 2-col grid left a ragged orphan row */
+.methods-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 860px) {
+    .methods-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+.research-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+}
+
+.research-card p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* ===== Publications ===== */
+.pub-list { margin-top: 1rem; }
+
+.pub-year {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.pub-year:first-of-type { margin-top: 0; }
+
+.pub-item {
+    padding: 1.1rem 0;
+}
+
+.pub-item + .pub-item {
+    border-top: 1px solid var(--border);
+}
+
+.pub-title {
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+}
+
+.pub-authors {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    /* title / authors / venue are one citation — don't inherit the 1rem
+       paragraph margin, which opened a gap before the journal line */
+    margin-bottom: 0.1rem;
+}
+
+.pub-authors strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.pub-venue {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* ===== Filtered landing — replaces the page header when ?area= narrows the list ===== */
+/* Arriving from a research area, the first thing on screen should name that area.
+   The generic "Publications" header is hidden and this takes its place, so the
+   reader lands on an answer rather than on the preamble. */
+.area-head {
+    /* JS unhides it, then adds .is-in on the next frame so it eases rather than snaps */
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.area-head.is-in { opacity: 1; transform: none; }
+
+.area-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    /* No mint bar (owner's call) — under small caps it read as a stray rule rather
+       than a link mark. The arrow carries the affordance instead. */
+    background-image: none;
+    padding-bottom: 0;
+}
+
+.area-back:hover { color: var(--text); }
+
+.area-back::before {
+    content: '\2190';                       /* left arrow */
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.area-back:hover::before { transform: translateX(-3px); }
+
+.area-title {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+}
+
+.area-sub {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+.area-sub span { font-variant-numeric: tabular-nums; }
+
+/* ===== Read the abstract =====
+   This is a control, not a link: it opens a panel, it does not navigate. It used to
+   carry the mint bar like every <a>, which put two mint rules on every citation —
+   the title and this — and 36 of them down the page. Reading as "repetitive" was the
+   markup telling the truth: the mark belongs to links.
+   So the resting state is a quiet ghost button in navy, and the mint arrives only on
+   hover, as a fill. Same one accent, a tenth as much of it, and the difference now
+   signals a difference in behaviour. No new hue — orange stayed retired. */
+.abstract-link {
+    display: inline-block;
+    /* pulled flush with the citation column; the padding only exists so the mint
+       block has room to breathe when it arrives */
+    margin: 0.55rem 0 0 -0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--navy-mid);
+    background-color: transparent;      /* the UA grey slab shows through otherwise */
+    border: 0;
+    cursor: pointer;
+    /* Same mint, same easing as every other mark on the site — but resting at
+       size 0 like the nav rows rather than showing the bar like prose links.
+       Quiet in a list of eighteen; unmistakable the moment you point at it. */
+    background-image: linear-gradient(0deg, var(--highlight), var(--highlight));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 100%;
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.abstract-link:hover {
+    color: var(--text);
+    background-size: 100% 100%;
+}
+
+.abstract-link[hidden] { display: none; }
+
+/* position: the close button is pinned to the top-right corner of this box */
+.abstract-dialog {
+    position: fixed;
+    /* the global `* { margin: 0 }` reset kills <dialog>'s built-in centring */
+    margin: auto;
+    width: min(56ch, calc(100vw - 3rem));
+    max-height: min(80vh, 44rem);
+    padding: 0;
+    background: var(--bg);
+    color: var(--text-body);
+    border: 0;
+    box-shadow: 0 24px 60px rgba(3, 29, 68, 0.28);
+    /* ONE scroll in this box, never two. The dialog itself must not scroll: it used
+       to, because it capped at min(80vh,44rem) while the abstract capped separately
+       at 46vh — two independent limits, so on a short screen both overflowed and you
+       got a scrollbar inside a scrollbar. Now the box is a flex column, head and
+       foot are fixed, and only the middle band scrolls. */
+    overflow: hidden;
+}
+
+.abstract-dialog::backdrop {
+    background: rgba(3, 29, 68, 0.45);
+    backdrop-filter: blur(2px);
+}
+
+/* Open state animates from a hair below and slightly small — enough to read as
+   arriving, not enough to feel like an effect. */
+@starting-style {
+    .abstract-dialog[open] { opacity: 0; transform: translateY(8px) scale(0.985); }
+    .abstract-dialog[open]::backdrop { opacity: 0; }
+}
+
+/* Animate the ENTRANCE only. Transitioning `overlay`/`display` on the way out keeps
+   the dialog in the top layer while it fades, and everything behind a modal dialog is
+   inert — so returning focus to the link that opened it silently failed for the length
+   of the transition. Closing instantly costs nothing visually and fixes that. */
+.abstract-dialog[open] {
+    /* flex only while open — <dialog> relies on display:none to stay hidden */
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.abstract-dialog[open]::backdrop {
+    opacity: 1;
+    transition: opacity 0.35s ease;
+}
+
+/* Head / body / foot as three bands: the title stays put, the abstract scrolls
+   between two hairlines, and the close control never moves. */
+.abstract-head { flex: 0 0 auto; padding: 2rem 3.25rem 1.1rem 2.25rem; }
+
+.abstract-kicker {
+    margin: 0 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+}
+
+.abstract-heading {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--text);
+}
+
+.abstract-heading::before { display: none; }   /* no ink bar in here */
+
+.abstract-venue {
+    margin: 0.5rem 0 0;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+.abstract-foot {
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 2.25rem 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* The bottom fade hangs off the footer rather than sitting inside the scroll area —
+   inside, it would scroll away with the text instead of staying at the edge. */
+.abstract-foot::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 3.5rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bg) 90%);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.abstract-dialog:has(.abstract-scroll[data-at-end]) .abstract-foot::before,
+.abstract-dialog:has(.abstract-scroll:not([data-scrollable])) .abstract-foot::before {
+    opacity: 0;
+}
+
+.abstract-doi { font-size: 0.9rem; }
+.abstract-doi[hidden] { display: none; }
+
+/* The one scrolling element in the dialog. `min-height: 0` is the load-bearing bit:
+   without it a flex item refuses to shrink below its content, so the dialog clipped
+   instead of letting this band scroll. */
+.abstract-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0 2.25rem;
+    border-top: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.abstract-scroll::-webkit-scrollbar { width: 8px; }
+.abstract-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* Plain content now — the wrapper above does the scrolling, so this must not have
+   a height cap of its own or the two would fight and both would overflow. */
+.abstract-body {
+    margin: 0;
+    padding: 1.25rem 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: var(--text-body);
+}
+
+
+.abstract-more {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    transition: opacity 0.3s ease;
+}
+
+.abstract-more::after {
+    content: '\2193';                       /* down arrow */
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+/* the cue lives in the footer now, so it is keyed off the dialog, not adjacency */
+.abstract-dialog:has(.abstract-scroll[data-at-end]) .abstract-more,
+.abstract-dialog:has(.abstract-scroll:not([data-scrollable])) .abstract-more { opacity: 0; }
+
+/* Top-right, square 44px target, quiet until pointed at. */
+.abstract-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--text-light);
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.abstract-close:hover { color: var(--text); background-color: var(--bg-alt); }
+
+@media (max-width: 560px) {
+    .abstract-head { padding: 1.6rem 3rem 0.9rem 1.4rem; }
+    .abstract-foot { padding: 0.9rem 1.4rem 1.2rem; }
+    .abstract-scroll { padding-inline: 1.4rem; }
+    .abstract-heading { font-size: 1.1rem; }
+}
+
+/* Short window: the head and foot are fixed, so on a laptop at 560px tall a
+   four-line title left barely 124px of abstract. Give the box more of the screen
+   and take the padding back out of the chrome, not out of the reading area. */
+@media (max-height: 700px) {
+    .abstract-dialog { max-height: 92vh; }
+    .abstract-head { padding-top: 1.2rem; padding-bottom: 0.7rem; }
+    .abstract-kicker { display: none; }
+    .abstract-heading { font-size: 1.05rem; }
+    .abstract-venue { margin-top: 0.35rem; font-size: 0.82rem; }
+    .abstract-body { padding: 0.9rem 0; }
+    .abstract-foot { padding-top: 0.7rem; padding-bottom: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .abstract-dialog[open],
+    .abstract-dialog[open]::backdrop { transition: none; }
+    .filter-bar { transition: none; }
+}
+
+/* ===== CV ===== */
+.cv-download {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: var(--text);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+}
+
+.cv-download:hover {
+    background: var(--text-body);
+    color: white;
+}
+
+.cv-section {
+    margin-bottom: 2.5rem;
+}
+
+.cv-section h3 {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.cv-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+}
+
+.cv-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.cv-details h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin-bottom: 0.15rem;
+}
+
+.cv-details p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ===== Teaching ===== */
+.course-list { margin-top: 1.5rem; }
+
+/* Academic-year band, same device as .pub-year on the publications page */
+.course-year {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.4rem 0 0;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.course-year:first-of-type { margin-top: 0.35rem; }
+
+/* One line per course: code | title | level·semester. Codes share a fixed column
+   so they align; the meta is pushed to the right so titles stay scannable. */
+.course-item {
+    display: grid;
+    grid-template-columns: 5rem 1fr auto;
+    gap: 0 1rem;
+    align-items: baseline;
+    padding: 0.4rem 0;
+}
+
+.course-item + .course-item { border-top: 1px solid var(--border); }
+
+.course-code {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+.course-title {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.course-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Narrow: meta drops under the title rather than squeezing the title column */
+@media (max-width: 700px) {
+    .course-item { grid-template-columns: 4.5rem 1fr; }
+    .course-desc { grid-column: 2; margin-top: 0.1rem; }
+}
+
+/* ===== Contact ===== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+/* Lift the box level with the "Contact" heading so the whole panel — areas and
+   callout included — sits above the fold on a laptop screen. */
+@media (min-width: 961px) {
+    .opportunities-box { margin-top: calc(-2.4rem * 1.15 - 1rem); }
+}
+
+.contact-info h2,
+.contact-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.contact-grid h2::before { display: none; }
+
+.contact-info > p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-item {
+    margin-bottom: 1.25rem;
+}
+
+.contact-item strong {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.contact-item a,
+.contact-item span,
+.contact-text {
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.contact-icon { display: none; }
+
+.opportunities-box {
+    background: var(--bg-soft);
+    padding: 1.35rem 1.5rem;
+    border-radius: 4px;
+}
+
+.opportunities-box h2,
+.opportunities-box h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.opportunities-box h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.opportunities-box p {
+    font-size: 0.9rem;
+    /* matches the list's own margin so the gaps above and below the list are
+       equal — the global `p { margin-bottom: 1rem }` made the top gap larger */
+    margin-bottom: 0.85rem;
+}
+
+.opportunities-box ul {
+    list-style: none;
+    /* indented from the paragraph measure so the list reads as a set-in block */
+    margin: 0.85rem 0 0.85rem 0.75rem;
+}
+
+.opportunities-box li {
+    font-size: 0.9rem;          /* same as .opportunities-box p */
+    color: var(--text-secondary);
+    /* nine items — keep the rows tight so the whole panel stays above the fold */
+    line-height: 1.45;
+    padding: 0.05rem 0 0.05rem 1rem;
+    position: relative;
+}
+
+.opportunities-box li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--text-light);
+}
+
+/* ===== Footer — deep navy ===== */
+.footer {
+    background: var(--navy-deep);
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    display: inline-block;
+    padding: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: var(--mint);
+    border: none;
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-links a:hover {
+    color: var(--text);
+}
+
+.footer p {
+    font-size: 0.8rem;
+    color: var(--navy-meta);
+}
+
+/* ===== Responsive ===== */
+
+/* Tight band: the rail is already 320px but the viewport is still narrow, so the
+   1fr hero column can't hold the unbreakable surname at full display size.
+   Step the portrait and h1 down rather than let the surname break. */
+@media (min-width: 961px) and (max-width: 1100px) {
+    .hero-content {
+        grid-template-columns: 190px 1fr;
+        gap: 2rem;
+    }
+
+    .hero-image img { width: 190px; height: 190px; }
+    .hero-text h1 { font-size: 2.25rem; }
+}
+
+@media (max-width: 960px) {
+    .page-shell { display: block; }
+
+    .page-banner { height: 170px; }
+
+    .navbar {
+        position: relative;
+        inset: auto;
+        width: auto;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        overflow-y: visible;
+    }
+
+    .nav-brand-wrapper { width: auto; }
+    .nav-brand-wrapper::after { display: none; }
+
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        min-height: 0;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.25rem 2rem;
+    }
+
+    .nav-brand { font-size: 1.75rem; }
+
+    .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+        width: auto;
+    }
+
+    .nav-links a { padding: 0.25rem 0; margin: 0; }
+}
+
+/* The horizontal top bar used to run 861–960px. With seven items it no longer fits:
+   measured at 900px it overflowed by 23px, with "Teaching & Research Supervision"
+   wrapping to three lines. Below the rail the nav is now always the dropdown, which
+   is vertical and shows every label in full. */
+@media (max-width: 960px) {
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        flex-direction: column;
+        padding: 1rem 2rem;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active { display: flex; }
+    .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    .nav-links li:last-child { border-bottom: none; }
+
+    .navbar { position: relative; }
+
+    .hero { padding: 0 0 3rem; }
+
+    .hero-banner { height: 170px; }
+
+    .hero-content {
+        padding: 0 1.5rem;
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-image { margin: 1.5rem auto 0; }
+    .hero-image img { width: 200px; height: 200px; }
+    .hero-text h1 { font-size: 2.25rem; }
+    .hero-meta { padding-left: 0; padding-right: 0; max-width: 250px; margin-left: auto; margin-right: auto; }
+    .hero-links { justify-content: center; }
+    .hero-email::before { margin-inline: auto; }
+
+    .section { padding: 2.5rem 1.5rem; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .cv-item { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+@media (max-width: 380px) {
+    .nav-container { padding: 1rem 1.25rem; gap: 1rem; }
+    .nav-brand { font-size: 1.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: 0.01ms !important; }
+}

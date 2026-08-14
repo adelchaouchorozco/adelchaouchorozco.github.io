@@ -3,133 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Teaching by Adel Chaouch-Orozco at City University of Hong Kong.">
+    <meta name="description" content="Teaching and research supervision by Adel Chaouch-Orozco at the Department of Linguistics and Translation, City University of Hong Kong.">
     <title>Teaching | Adel Chaouch-Orozco</title>
-    
-    
-    <!-- Fonts loaded via CSS @import -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/fonts/HankenGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final53">
 </head>
 <body>
-    <!-- Navigation -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Adel Chaouch-Orozco</a>
-            <div class="nav-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand-wrapper">
+                <a href="index.html" class="nav-brand">Adel <span class="nowrap">Chaouch-Orozco</span></a>
+                <span class="nav-tagline">Academic Website</span>
             </div>
+            <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="teaching.html" class="active">Teaching</a></li>
+                <li><a href="teaching.html" class="active" aria-current="page">Teaching<span class="nav-label-tail"> &amp; Research Supervision</span></a></li>
                 <li><a href="cv.html">CV</a></li>
+                <li><a href="about.html">Beyond research</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <section class="section">
-        <div class="container">
-            <h1>Teaching</h1>
-            <p style="font-size: 1.1rem; max-width: 800px;">
-                I teach courses in linguistics, psycholinguistics, and research methods at City University of Hong Kong.
-                My teaching philosophy emphasizes connecting theoretical concepts to real-world applications and
-                developing critical thinking skills through hands-on research experience.
-            </p>
-        </div>
-    </section>
+    <div class="page-main">
 
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Current Courses</h2>
-            <p>Courses taught at City University of Hong Kong:</p>
+    <main id="main">
+    <section class="section flat">
+        <h1>Teaching</h1>
+        <p style="font-size: 1.05rem;">
+            I teach in the Department of Linguistics and Translation at City University
+            of Hong Kong, across the department’s undergraduate and postgraduate
+            programmes. My teaching draws directly on my research in psycholinguistics,
+            bilingualism, and the cognitive science of language.
+        </p>
 
-            <div class="course-list">
-                <div class="course-item">
-                    <div class="course-code">Department of Linguistics and Translation</div>
-                    <h4 class="course-title">Psycholinguistics</h4>
-                    <p class="course-desc">
-                        An introduction to the cognitive processes underlying language comprehension and production.
-                        Topics include word recognition, sentence processing, speech perception, and the bilingual mind.
-                    </p>
-                </div>
+        <h2 class="subsection">Courses</h2>
+        <div class="course-list">
+            <p class="course-year">2026/27</p>
+            <div class="course-item">
+                <span class="course-code">GE2142</span>
+                <p class="course-title">Network Analysis for the Humanities and Social Sciences</p>
+                <p class="course-desc">Undergraduate · Semester A</p>
+            </div>
+            <div class="course-item">
+                <span class="course-code">LT5461</span>
+                <p class="course-title">Cognition and Language Differences</p>
+                <p class="course-desc">MA · Semester A</p>
+            </div>
+            <div class="course-item">
+                <span class="course-code">LT8808</span>
+                <p class="course-title">Research Methodology for Language Students</p>
+                <p class="course-desc">PhD · Semester B</p>
+            </div>
 
-                <div class="course-item">
-                    <div class="course-code">Department of Linguistics and Translation</div>
-                    <h4 class="course-title">Research Methods in Linguistics</h4>
-                    <p class="course-desc">
-                        A practical course covering experimental design, data collection, and statistical analysis
-                        for linguistic research. Students learn to design and conduct their own experiments.
-                    </p>
-                </div>
+            <p class="course-year">2025/26</p>
+            <div class="course-item">
+                <span class="course-code">LT4255</span>
+                <p class="course-title">Applied Psycholinguistics</p>
+                <p class="course-desc">Undergraduate · Semester A</p>
+            </div>
+            <div class="course-item">
+                <span class="course-code">LT5461</span>
+                <p class="course-title">Cognition and Language Differences</p>
+                <p class="course-desc">MA · Semester A</p>
+            </div>
+            <div class="course-item">
+                <span class="course-code">LT8808</span>
+                <p class="course-title">Research Methodology for Language Students</p>
+                <p class="course-desc">PhD · Semester B</p>
+            </div>
 
-                <div class="course-item">
-                    <div class="course-code">Department of Linguistics and Translation</div>
-                    <h4 class="course-title">Bilingualism and Multilingualism</h4>
-                    <p class="course-desc">
-                        Examines the cognitive, social, and linguistic aspects of knowing multiple languages.
-                        Topics include language acquisition, code-switching, and the bilingual brain.
-                    </p>
-                </div>
+            <p class="course-year">2024/25</p>
+            <div class="course-item">
+                <span class="course-code">LT5403</span>
+                <p class="course-title">Semantics and Discourse</p>
+                <p class="course-desc">MA · Semester B</p>
+            </div>
+            <div class="course-item">
+                <span class="course-code">LT5406</span>
+                <p class="course-title">Psycholinguistics</p>
+                <p class="course-desc">MA · Semester B</p>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <h2>Teaching Philosophy</h2>
+    <section class="section flat">
+        <h2 class="h2-major">Research Supervision</h2>
+        <p>
+            I welcome MPhil and PhD applicants interested in psycholinguistics,
+            bilingualism, semantic memory, network-science approaches to the mental
+            lexicon, and the relationship between language, emotion, and culture.
+            Research degrees are offered through the department’s
+            <a href="https://lt.cityu.edu.hk" target="_blank" rel="noopener">MPhil/PhD programme</a>.
+        </p>
+        <p>
+            If you are considering applying, <a href="mailto:adel.chaouchorozco@cityu.edu.hk"><strong>email me</strong></a>
+            with a CV and a short statement of your research interests.
+        </p>
+
+        <div class="callout">
+            <p class="callout-lead">Thinking of applying? You can start by exploring the questions we are working on.</p>
             <p>
-                I believe in creating an engaging learning environment where students actively participate in the
-                discovery process. My courses integrate current research findings with practical applications,
-                helping students see how theoretical concepts apply to real linguistic phenomena.
-            </p>
-            <p>
-                I encourage students to develop their own research questions and provide mentorship for independent
-                research projects. Several of my students have gone on to present their work at conferences and
-                pursue graduate studies in linguistics and cognitive science.
+                The strongest proposals build a meaningful connection with the lab’s research
+                while bringing your own perspective and direction.
+                <a href="research.html#research-areas">Explore the Research Areas</a>.
             </p>
         </div>
     </section>
+    </main>
 
-    <section class="section section-alt">
-        <div class="container">
-            <h2>Student Supervision</h2>
-            <p>
-                I supervise undergraduate and postgraduate research projects on topics related to:
-            </p>
-            <ul style="margin-top: 1rem; margin-left: 1.5rem; color: var(--text-medium);">
-                <li>Bilingual language processing</li>
-                <li>Lexical-semantic organization</li>
-                <li>Cross-cultural differences in language and cognition</li>
-                <li>Second/third language acquisition</li>
-                <li>Computational approaches to linguistic analysis</li>
-            </ul>
-            <p style="margin-top: 1.5rem;">
-                If you're interested in working with me, please see the <a href="contact.html">Contact</a> page
-                for information about opportunities.
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="mailto:adel.chaouchorozco@cityu.edu.hk">Email</a>
-                <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://lt.cityu.edu.hk/people/academic-staff/chaouch-orozco-adel" target="_blank">CityU</a>
-            </div>
-            <p>&copy; 2025 Adel Chaouch-Orozco. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="contact.html">Contact</a>
         </div>
+        <p>&copy; 2026 Adel Chaouch-Orozco</p>
     </footer>
+    </div><!-- /page-main -->
+    </div><!-- /page-shell -->
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const open = document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.nav-toggle').setAttribute('aria-expanded', open);
         }
     </script>
 </body>
