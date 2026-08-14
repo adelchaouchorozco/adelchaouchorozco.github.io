@@ -1377,6 +1377,32 @@ p:last-child { margin-bottom: 0; }
     color: var(--text);
 }
 
+/* Profile marks in the navy band. Inlined SVG so they cost no request and take
+   their colour from here; they rest in the same dimmed tone as the footer meta
+   and come up to mint on hover, matching the footer links. */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-bottom: 1.1rem;
+}
+
+.footer-social a {
+    display: grid;
+    place-items: center;
+    /* 24px minimum target even though the mark itself is 18px */
+    width: 32px;
+    height: 32px;
+    color: var(--navy-meta);
+    background-image: none;             /* no mint bar under an icon */
+    padding-bottom: 0;
+    transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-social a:hover { color: var(--mint); }
+
+.footer-social svg { display: block; fill: currentColor; }
+
 .footer p {
     font-size: 0.8rem;
     color: var(--navy-meta);
