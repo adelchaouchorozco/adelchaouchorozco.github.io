@@ -1,31 +1,31 @@
 /* ===== Milestone 5 — full-width banner · sticky left rail · modern grotesque ===== */
 /* Ink #111 on white · whisper-blue bands #f3f7fb · mint highlight #dcead0 (the one
    link/state mark — orange is retired) · deep-space blue #04395e tagline · Prussian footer #031d44 */
-/* One typeface throughout: Hanken Grotesk variable (weight carries the hierarchy) */
+/* One typeface throughout: Open Sans variable (weight carries the hierarchy) */
 
 @font-face {
-    font-family: 'Hanken Grotesk';
+    font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 300 800;
     font-display: swap;
-    src: url('../fonts/HankenGrotesk-var.woff2') format('woff2');
+    src: url('../fonts/OpenSans-var.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Hanken Grotesk';
+    font-family: 'Open Sans';
     font-style: italic;
-    font-weight: 100 900;
+    font-weight: 300 800;
     font-display: swap;
-    src: url('../fonts/HankenGrotesk-italic-var.woff2') format('woff2');
+    src: url('../fonts/OpenSans-var-italic.woff2') format('woff2');
 }
 
 /* Metric-tuned fallback to minimize swap reflow */
 @font-face {
-    font-family: 'Hanken Grotesk Fallback';
+    font-family: 'Open Sans Fallback';
     src: local('Arial');
-    size-adjust: 100%;
-    ascent-override: 98%;
-    descent-override: 26%;
+    size-adjust: 104.63%;
+    ascent-override: 101.32%;
+    descent-override: 27.78%;
     line-gap-override: 0%;
 }
 
@@ -48,10 +48,10 @@
        (line-height 1.7). One distance for every link on every page. */
     --hl-drop: 0.2em;
 
-    /* One family in both roles: Hanken Grotesk is variable (100–900), so the
+    /* One family in both roles: Open Sans is variable (300–800), so the
        hierarchy comes from weight and size, not from a second typeface. */
-    --font-display: 'Hanken Grotesk', 'Hanken Grotesk Fallback', -apple-system, sans-serif;
-    --font-body: 'Hanken Grotesk', 'Hanken Grotesk Fallback', -apple-system, sans-serif;
+    --font-display: 'Open Sans', 'Open Sans Fallback', -apple-system, sans-serif;
+    --font-body: 'Open Sans', 'Open Sans Fallback', -apple-system, sans-serif;
 
     --max-width: 900px;
     --nav-width: 320px;
