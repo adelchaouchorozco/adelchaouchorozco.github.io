@@ -50,6 +50,26 @@
 
     /* One family in both roles: Open Sans is variable (300–800), so the
        hierarchy comes from weight and size, not from a second typeface. */
+
+    /* ---- Type scale -------------------------------------------------------
+       One ladder for the whole site. Before this, 16 near-duplicate sizes were
+       spread across 0.7–1.05rem, so the same kind of text rendered at 15.3px on
+       one page and 17px on another. Every rule below picks a step; none invents
+       a size. Values are rem, so the root above rescales all of them at once. */
+    --fs-micro: 0.75rem;    /* 12px   eyebrows, tagline, footer fine print */
+    --fs-meta: 0.8125rem;   /* 13px   venues, credits, dates */
+    --fs-small: 0.875rem;   /* 14px   captions, back-links, book titles */
+    --fs-sub: 0.9375rem;    /* 15px   secondary copy */
+    --fs-body: 1rem;        /* 16px   running prose — the default */
+    --fs-lead: 1.0625rem;   /* 17px   page intros, nav links */
+    --fs-title: 1.15rem;    /* 18.4px card and item titles */
+    --fs-h3: 1.3rem;        /* 20.8px h3 and boxed headings */
+    --fs-year: 1.5rem;      /* 24px   year bands, dialog close */
+    --fs-brand: 1.75rem;    /* 28px   masthead */
+    --fs-h2: 1.85rem;       /* 29.6px section headings */
+    --fs-h1: 2.4rem;        /* 38.4px page titles */
+    --fs-hero: 2.75rem;     /* 44px   home hero only */
+
     --font-display: 'Open Sans', 'Open Sans Fallback', -apple-system, sans-serif;
     --font-body: 'Open Sans', 'Open Sans Fallback', -apple-system, sans-serif;
 
@@ -60,7 +80,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-    font-size: 106.25%;
+    font-size: 100%;   /* 16px base (was 17px) */
     scroll-behavior: smooth;
 }
 
@@ -167,7 +187,7 @@ a:hover {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.01em;
-    font-size: 1.75rem;
+    font-size: var(--fs-brand);
     color: var(--text);
     border: none;
     background-image: none;
@@ -180,7 +200,7 @@ a:hover {
 
 .nav-tagline {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: var(--fs-micro);
     font-weight: 600;
     color: var(--navy-mid);
     letter-spacing: 0.1em;
@@ -201,7 +221,7 @@ a:hover {
     display: block;
     padding: 0.5rem 0.75rem;
     margin: 0 -0.75rem;
-    font-size: 1.05rem;
+    font-size: var(--fs-lead);
     /* tighter than body leading so a wrapped label reads as one item */
     line-height: 1.35;
     color: var(--text-secondary);
@@ -229,7 +249,10 @@ a:hover {
     background-size: 100% 100%;
 }
 
-.nav-toggle { display: none; cursor: pointer; padding: 0.5rem; background: none; border: none; }
+/* font: inherit — buttons do not inherit type by default, so without this the
+   toggle sits at the UA's 13.333px Arial. Invisible today (the spans are bars,
+   not text) but it is the one element on the site off the scale. */
+.nav-toggle { display: none; cursor: pointer; padding: 0.5rem; background: none; border: none; font: inherit; }
 .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; }
 
 .skip-link {
@@ -299,26 +322,26 @@ button:focus-visible {
 
 .hero-text h1 {
     font-family: var(--font-display);
-    font-size: 2.75rem;
+    font-size: var(--fs-hero);
     color: var(--text);
     margin-bottom: 0.5rem;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: var(--fs-title);
     color: var(--text-secondary);
     margin-bottom: 1.25rem;
 }
 
 .hero-bio {
     color: var(--text-body);
-    font-size: 1rem;
+    font-size: var(--fs-body);
     line-height: 1.8;
 }
 
 .hero-email {
     margin: 1.9rem 0 0;
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
 }
 
 .hero-email::before {
@@ -337,7 +360,7 @@ button:focus-visible {
     flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 0.55rem;
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
 }
 
 .hero-links a {
@@ -372,7 +395,7 @@ main > section.flat:first-child { padding-top: 3.5rem; }
    smaller, so "Courses" reads as part of Teaching while a plain h2 like
    "Research Supervision" reads as its own top-level section. */
 h2.subsection {
-    font-size: 1.3rem;
+    font-size: var(--fs-h3);
     margin-top: 3rem;
     margin-bottom: 1.25rem;
 }
@@ -382,7 +405,7 @@ h2.subsection::before { display: none; }
 /* A section heading that sits co-equal with the page h1 (Research Supervision
    is a top-level section of the Teaching page, not a subsection of it). */
 h2.h2-major {
-    font-size: 2.4rem;
+    font-size: var(--fs-h1);
     font-weight: 700;
     letter-spacing: -0.015em;
     line-height: 1.15;
@@ -399,7 +422,7 @@ h2.h2-major {
 
 .callout p {
     margin: 0;
-    font-size: 1.02rem;
+    font-size: var(--fs-body);
     color: var(--text-body);
 }
 
@@ -414,7 +437,7 @@ h2.h2-major {
     padding: 0.85rem 1.1rem;
 }
 
-.opportunities-box .callout p { font-size: 0.92rem; }
+.opportunities-box .callout p { font-size: var(--fs-sub); }
 
 /* ===== Research areas — one topic per row, photo alternating side ===== */
 .area-rows {
@@ -447,19 +470,19 @@ h2.h2-major {
 
 .area-text h3 {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: var(--fs-h3);
     margin-bottom: 0.55rem;
 }
 
 .area-text p {
     margin: 0;
-    font-size: 0.98rem;
+    font-size: var(--fs-body);
     color: var(--text-secondary);
 }
 
 /* Link out to the filtered publications list. Sized below the description so it
    reads as a next step, not as part of the prose. */
-.area-studies { margin: 0.75rem 0 0; font-size: 0.9rem; }
+.area-studies { margin: 0.75rem 0 0; font-size: var(--fs-sub); }
 
 .area-figure { margin: 0; }
 
@@ -586,14 +609,14 @@ h2.h2-major {
 .book-title {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 0.86rem;
+    font-size: var(--fs-small);
     line-height: 1.3;
     color: var(--text);
     margin: 0.7rem 0 0;
 }
 
 .book-author {
-    font-size: 0.82rem;
+    font-size: var(--fs-meta);
     font-style: italic;
     line-height: 1.35;
     color: var(--text-light);
@@ -614,7 +637,8 @@ h2.h2-major {
     border-radius: 50%;
     background: var(--bg);
     color: var(--text);
-    font-size: 1.4rem;
+    font-family: inherit;                   /* buttons default to Arial otherwise */
+    font-size: var(--fs-year);
     line-height: 1;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(3, 29, 68, 0.12);
@@ -629,7 +653,7 @@ h2.h2-major {
 /* No count beside it (owner's call) — the flex row is gone with it. */
 .book-year-heading { margin-top: 2.5rem; }
 
-.book-credit { font-size: 0.8rem; color: var(--text-light); margin-top: 1.25rem; }
+.book-credit { font-size: var(--fs-meta); color: var(--text-light); margin-top: 1.25rem; }
 
 @media (prefers-reduced-motion: reduce) {
     .carousel-track { scroll-behavior: auto; }
@@ -668,21 +692,21 @@ h2.h2-major {
 
 .project-title {
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: var(--fs-title);
     line-height: 1.35;
     color: var(--text);
     margin: 0 0 0.3rem;
 }
 
 .project-meta {
-    font-size: 0.9rem;
+    font-size: var(--fs-sub);
     color: var(--text-light);
     margin: 0;
 }
 
 .project-desc {
     margin: 0.55rem 0 0;
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     color: var(--text-secondary);
 }
 
@@ -700,17 +724,50 @@ h1 {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.015em;
-    font-size: 2.4rem;
+    font-size: var(--fs-h1);
     line-height: 1.15;
     color: var(--text);
     margin-bottom: 1rem;
+}
+
+/* Optical flush-left.
+   Capitals carry different left side bearings, and the bearing scales with the
+   type size — so a 38px heading set flush-left sits up to 2px inboard of the
+   16px paragraph beneath it, which reads as a misalignment even though both
+   boxes share an edge. Each value below is the measured bearing difference of
+   that letter group in the shipped face, expressed in em so it holds at every
+   breakpoint. Untagged headings get 0: the home hero has no body copy directly
+   under it to align to, so there is nothing to correct against. */
+h1,
+.area-title { margin-left: var(--optical, 0); }
+
+.oc-stem  { --optical: -0.049em; }   /* B D E F H I K L M N P R U — flat stem */
+.oc-round { --optical: -0.017em; }   /* C G O Q — round, overshoots slightly */
+.oc-flat  { --optical: 0; }          /* S — already flush */
+.oc-tz    { --optical: 0.021em; }    /* T Z — crossbar starts outboard */
+.oc-diag  { --optical: 0.041em; }    /* A V W X Y — apex reaches the edge */
+.oc-j     { --optical: 0.115em; }    /* J — deep left overhang */
+
+/* The home hero is centred below 961px, where a bearing nudge would only skew
+   the centring. Above it the hero stacks left-aligned over the bio paragraph and
+   shares its edge, so "Adel" gets the diagonal-apex correction like any other A. */
+@media (min-width: 961px) {
+    .hero-text h1 { --optical: 0.041em; }
+}
+
+/* Page intro. Was an inline 1.05rem repeated on five pages, which is how it
+   drifted out of step with the home page's lead paragraph. */
+.page-intro {
+    font-size: var(--fs-lead);
+    color: var(--text-light);
+    max-width: 62ch;
 }
 
 h2 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.01em;
-    font-size: 1.85rem;
+    font-size: var(--fs-h2);
     line-height: 1.2;
     color: var(--text);
     margin-bottom: 1.25rem;
@@ -728,7 +785,7 @@ h2::before {
 h3 {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
     line-height: 1.25;
     color: var(--text);
     margin-bottom: 0.5rem;
@@ -762,11 +819,11 @@ p:last-child { margin-bottom: 0; }
 
 .research-card h3 {
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: var(--fs-title);
 }
 
 .research-card p {
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     margin: 0;
     color: var(--text-secondary);
 }
@@ -776,7 +833,7 @@ p:last-child { margin-bottom: 0; }
 
 .pub-year {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: var(--fs-year);
     color: var(--text);
     margin: 1.9rem 0 0.8rem;
     padding-bottom: 0.5rem;
@@ -801,7 +858,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .pub-authors {
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     color: var(--text-secondary);
     /* title / authors / venue are one citation — don't inherit the 1rem
        paragraph margin, which opened a gap before the journal line */
@@ -814,7 +871,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .pub-venue {
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     color: var(--text-light);
     font-style: italic;
     margin-bottom: 0;
@@ -839,7 +896,7 @@ p:last-child { margin-bottom: 0; }
     align-items: center;
     gap: 0.45rem;
     margin-bottom: 1.1rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-small);
     font-weight: 600;
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -854,7 +911,7 @@ p:last-child { margin-bottom: 0; }
 
 .area-back::before {
     content: '\2190';                       /* left arrow */
-    font-size: 1rem;
+    font-size: var(--fs-body);
     line-height: 1;
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -865,13 +922,13 @@ p:last-child { margin-bottom: 0; }
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.015em;
-    font-size: 2.4rem;
+    font-size: var(--fs-h1);
     line-height: 1.15;
     margin-bottom: 0.6rem;
 }
 
 .area-sub {
-    font-size: 1rem;
+    font-size: var(--fs-body);
     color: var(--text-light);
     margin-bottom: 0;
 }
@@ -893,7 +950,7 @@ p:last-child { margin-bottom: 0; }
     margin: 0.55rem 0 0 -0.5rem;
     padding: 0.25rem 0.5rem;
     font-family: var(--font-body);
-    font-size: 0.88rem;
+    font-size: var(--fs-small);
     font-weight: 500;
     color: var(--navy-mid);
     background-color: transparent;      /* the UA grey slab shows through otherwise */
@@ -974,7 +1031,7 @@ p:last-child { margin-bottom: 0; }
 
 .abstract-kicker {
     margin: 0 0 0.5rem;
-    font-size: 0.7rem;
+    font-size: var(--fs-micro);
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -985,7 +1042,7 @@ p:last-child { margin-bottom: 0; }
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.01em;
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
     line-height: 1.3;
     margin: 0;
     color: var(--text);
@@ -995,7 +1052,7 @@ p:last-child { margin-bottom: 0; }
 
 .abstract-venue {
     margin: 0.5rem 0 0;
-    font-size: 0.88rem;
+    font-size: var(--fs-small);
     font-style: italic;
     color: var(--text-light);
 }
@@ -1031,7 +1088,7 @@ p:last-child { margin-bottom: 0; }
     opacity: 0;
 }
 
-.abstract-doi { font-size: 0.9rem; }
+.abstract-doi { font-size: var(--fs-sub); }
 .abstract-doi[hidden] { display: none; }
 
 /* The one scrolling element in the dialog. `min-height: 0` is the load-bearing bit:
@@ -1055,7 +1112,7 @@ p:last-child { margin-bottom: 0; }
 .abstract-body {
     margin: 0;
     padding: 1.25rem 0;
-    font-size: 0.97rem;
+    font-size: var(--fs-body);
     line-height: 1.7;
     color: var(--text-body);
 }
@@ -1066,7 +1123,7 @@ p:last-child { margin-bottom: 0; }
     align-items: center;
     gap: 0.4rem;
     margin: 0;
-    font-size: 0.78rem;
+    font-size: var(--fs-meta);
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -1076,7 +1133,7 @@ p:last-child { margin-bottom: 0; }
 
 .abstract-more::after {
     content: '\2193';                       /* down arrow */
-    font-size: 0.9rem;
+    font-size: var(--fs-sub);
     line-height: 1;
 }
 
@@ -1094,7 +1151,7 @@ p:last-child { margin-bottom: 0; }
     display: grid;
     place-items: center;
     font-family: var(--font-body);
-    font-size: 1.5rem;
+    font-size: var(--fs-year);
     line-height: 1;
     color: var(--text-light);
     background-color: transparent;
@@ -1109,7 +1166,7 @@ p:last-child { margin-bottom: 0; }
     .abstract-head { padding: 1.6rem 3rem 0.9rem 1.4rem; }
     .abstract-foot { padding: 0.9rem 1.4rem 1.2rem; }
     .abstract-scroll { padding-inline: 1.4rem; }
-    .abstract-heading { font-size: 1.1rem; }
+    .abstract-heading { font-size: var(--fs-title); }
 }
 
 /* Short window: the head and foot are fixed, so on a laptop at 560px tall a
@@ -1119,8 +1176,8 @@ p:last-child { margin-bottom: 0; }
     .abstract-dialog { max-height: 92vh; }
     .abstract-head { padding-top: 1.2rem; padding-bottom: 0.7rem; }
     .abstract-kicker { display: none; }
-    .abstract-heading { font-size: 1.05rem; }
-    .abstract-venue { margin-top: 0.35rem; font-size: 0.82rem; }
+    .abstract-heading { font-size: var(--fs-lead); }
+    .abstract-venue { margin-top: 0.35rem; font-size: var(--fs-meta); }
     .abstract-body { padding: 0.9rem 0; }
     .abstract-foot { padding-top: 0.7rem; padding-bottom: 0.9rem; }
 }
@@ -1137,7 +1194,7 @@ p:last-child { margin-bottom: 0; }
     padding: 0.6rem 1.25rem;
     background: var(--text);
     color: white;
-    font-size: 0.85rem;
+    font-size: var(--fs-small);
     font-weight: 500;
     border: none;
     border-radius: 3px;
@@ -1155,7 +1212,7 @@ p:last-child { margin-bottom: 0; }
 
 .cv-section h3 {
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--fs-meta);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1173,18 +1230,18 @@ p:last-child { margin-bottom: 0; }
 }
 
 .cv-date {
-    font-size: 0.85rem;
+    font-size: var(--fs-small);
     color: var(--text-light);
 }
 
 .cv-details h3 {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: var(--fs-title);
     margin-bottom: 0.15rem;
 }
 
 .cv-details p {
-    font-size: 0.9rem;
+    font-size: var(--fs-sub);
     color: var(--text-secondary);
     margin: 0;
 }
@@ -1196,7 +1253,7 @@ p:last-child { margin-bottom: 0; }
 .course-year {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: var(--fs-lead);
     color: var(--text);
     margin: 1.4rem 0 0;
     padding-bottom: 0.35rem;
@@ -1219,7 +1276,7 @@ p:last-child { margin-bottom: 0; }
 
 .course-code {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--fs-sub);
     letter-spacing: 0;
     text-transform: none;
     color: var(--text);
@@ -1228,13 +1285,13 @@ p:last-child { margin-bottom: 0; }
 
 .course-title {
     font-family: var(--font-display);
-    font-size: 1.02rem;
+    font-size: var(--fs-body);
     line-height: 1.35;
     margin: 0;
 }
 
 .course-desc {
-    font-size: 0.85rem;
+    font-size: var(--fs-small);
     color: var(--text-light);
     margin: 0;
     white-space: nowrap;
@@ -1262,14 +1319,14 @@ p:last-child { margin-bottom: 0; }
 .contact-info h2,
 .contact-info h3 {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: var(--fs-h3);
     margin-bottom: 0.75rem;
 }
 
 .contact-grid h2::before { display: none; }
 
 .contact-info > p {
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
@@ -1280,7 +1337,7 @@ p:last-child { margin-bottom: 0; }
 
 .contact-item strong {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--fs-micro);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1291,7 +1348,7 @@ p:last-child { margin-bottom: 0; }
 .contact-item a,
 .contact-item span,
 .contact-text {
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     color: var(--text);
 }
 
@@ -1306,18 +1363,18 @@ p:last-child { margin-bottom: 0; }
 .opportunities-box h2,
 .opportunities-box h3 {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: var(--fs-h3);
     margin-bottom: 0.75rem;
 }
 
 .opportunities-box h4 {
-    font-size: 0.95rem;
+    font-size: var(--fs-sub);
     font-weight: 600;
     margin: 1.5rem 0 0.5rem;
 }
 
 .opportunities-box p {
-    font-size: 0.9rem;
+    font-size: var(--fs-sub);
     /* matches the list's own margin so the gaps above and below the list are
        equal — the global `p { margin-bottom: 1rem }` made the top gap larger */
     margin-bottom: 0.85rem;
@@ -1330,7 +1387,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .opportunities-box li {
-    font-size: 0.9rem;          /* same as .opportunities-box p */
+    font-size: var(--fs-sub);          /* same as .opportunities-box p */
     color: var(--text-secondary);
     /* nine items — keep the rows tight so the whole panel stays above the fold */
     line-height: 1.45;
@@ -1383,7 +1440,7 @@ p:last-child { margin-bottom: 0; }
 .footer-links a {
     display: inline-block;
     padding: 0;
-    font-size: 0.85rem;
+    font-size: var(--fs-small);
     color: var(--navy-meta);
     border: none;
     background-image: none;
@@ -1421,7 +1478,7 @@ p:last-child { margin-bottom: 0; }
 
 .footer p {
     margin-top: 1.35rem;
-    font-size: 0.76rem;
+    font-size: var(--fs-micro);
     color: var(--navy-meta);
     opacity: 0.85;              /* a footnote, not a third element competing */
 }
@@ -1438,7 +1495,7 @@ p:last-child { margin-bottom: 0; }
     }
 
     .hero-image img { width: 190px; height: 190px; }
-    .hero-text h1 { font-size: 2.25rem; }
+    .hero-text h1 { font-size: var(--fs-h1); }
 }
 
 @media (max-width: 960px) {
@@ -1470,7 +1527,7 @@ p:last-child { margin-bottom: 0; }
         padding: 1.25rem 2rem;
     }
 
-    .nav-brand { font-size: 1.75rem; }
+    .nav-brand { font-size: var(--fs-brand); }
 
     .nav-links {
         flex-direction: row;
@@ -1524,7 +1581,7 @@ p:last-child { margin-bottom: 0; }
 
     .hero-image { margin: 1.5rem auto 0; }
     .hero-image img { width: 200px; height: 200px; }
-    .hero-text h1 { font-size: 2.25rem; }
+    .hero-text h1 { font-size: var(--fs-h1); }
     .hero-meta { padding-left: 0; padding-right: 0; max-width: 250px; margin-left: auto; margin-right: auto; }
     .hero-links { justify-content: center; }
     .hero-email::before { margin-inline: auto; }
@@ -1537,7 +1594,7 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 380px) {
     .nav-container { padding: 1rem 1.25rem; gap: 1rem; }
-    .nav-brand { font-size: 1.4rem; }
+    .nav-brand { font-size: var(--fs-year); }
 }
 
 @media (prefers-reduced-motion: reduce) {
