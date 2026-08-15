@@ -6,7 +6,7 @@
     <meta name="description" content="Publications by Adel Chaouch-Orozco: journal articles, books, and chapters on psycholinguistics, bilingualism, and semantic memory.">
     <title>Publications | Adel Chaouch-Orozco</title>
     <link rel="preload" href="assets/fonts/OpenSans-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final66">
+    <link rel="stylesheet" href="assets/css/style-final.css?v=m5-final62">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -41,8 +41,8 @@
         <!-- Unfiltered view: the ordinary page header. Hidden when ?area= narrows the
              list, so the filtered landing leads with the area instead of the preamble. -->
         <div id="pageHead">
-            <h1 class="oc-stem">Publications</h1>
-            <p class="page-intro">
+            <h1>Publications</h1>
+            <p style="font-size: 1.05rem;">
                 Peer-reviewed articles, books, and chapters. Citation counts and the most
                 current list are on <a href="https://scholar.google.com/citations?user=76VtD-kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
                 (240+ citations, h-index 9 as of July 2026).
@@ -404,19 +404,7 @@
             // names the thing you clicked rather than making you hunt for it.
             document.getElementById('pageHead').hidden = true;
             document.title = AREA_NAMES[area] + ' | Work | Adel Chaouch-Orozco';
-            const areaTitle = document.getElementById('filterArea');
-            areaTitle.textContent = AREA_NAMES[area];
-
-            // Optical flush-left, same correction the static page titles get in
-            // CSS. Applied in the same statement that writes the text, so the
-            // heading is never painted at the uncorrected position.
-            const BEARING = { BDEFHIKLMNPRU: 'oc-stem', CGOQ: 'oc-round', S: 'oc-flat',
-                              TZ: 'oc-tz', AVWXY: 'oc-diag', J: 'oc-j' };
-            const initial = AREA_NAMES[area].charAt(0).toUpperCase();
-            for (const letters in BEARING) {
-                if (letters.indexOf(initial) !== -1) { areaTitle.classList.add(BEARING[letters]); break; }
-            }
-
+            document.getElementById('filterArea').textContent = AREA_NAMES[area];
             const bar = document.getElementById('filterBar');
             bar.hidden = false;
             requestAnimationFrame(function () { bar.classList.add('is-in'); });
