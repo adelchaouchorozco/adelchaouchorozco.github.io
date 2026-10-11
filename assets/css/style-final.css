@@ -635,29 +635,31 @@ h2.h2-major {
     .carousel-track { scroll-behavior: auto; }
 }
 
-/* ===== Listening: Spotify player =====
-   Spotify's embed reflows on its own: wide, it is a horizontal bar with a short
-   list; narrow, it becomes the portrait card — cover and controls stacked above a
-   numbered track list. The owner wants the portrait one, so the card is capped at
-   500px — measured: 380px clips the title to "Last.fm Top 30 · Last", 460px is a
-   hair tight, 500px clears it (re-verified: 400px cuts it to "Last.fm Top 30 · Last 9").
-   Width is therefore NOT the dial for resizing this; height is — and with width fixed
-   at 500 the one proportion that reads as chosen rather than arbitrary is the SQUARE.
-   A square and a clean row edge are mutually exclusive here: measured, the header is
-   ~142px and rows are ~50px, so whole rows land at 469 (five) and 519 (six), neither
-   of which is square. 500 keeps the proportion and leaves the sixth row half-visible,
-   which is the usual cue that a list scrolls. If a sealed bottom edge ever matters
-   more than the square, 519 is the number.
-   It stands alone, no copy beside it (owner's call). min-height holds the space if
-   Spotify is slow or blocked; the shadow is the same one the book covers carry. */
-.player {
-    margin-top: 1.4rem;
-    max-width: 500px;
-    min-height: 500px;
+/* The listening grid is the month's most-played artists, lifted from Last.fm.
+   700px keeps the four columns wide enough for the names to stay legible; the
+   shadow is the same one the book covers carry. */
+.section-note {
+    margin: 0.2rem 0 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.listening-grid {
+    margin: 1.4rem 0 0;
+    max-width: 700px;
+}
+
+.listening-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1540 / 633;
     box-shadow: 0 8px 18px rgba(3, 29, 68, 0.10);
 }
 
-.player iframe { display: block; border: 0; width: 100%; height: 500px; }
+@media (max-width: 760px) {
+    .listening-grid img { aspect-ratio: 768 / 1274; }
+}
 
 /* ===== Research projects ===== */
 .project-list { margin-top: 1rem; }
